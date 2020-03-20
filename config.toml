@@ -21,7 +21,7 @@ author = "Hyounsoo Kim"
 
 # 변경 필요
 title = "Hugo 템플릿 활용하기"
-googleAnalytics = "UA-160433107-1"
+googleAnalytics = "UA-161422664-1"
 
 [[menu.shortcuts]] 
 name = "<i class='fab fa-aws'></i> AWS Homepage"
