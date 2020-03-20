@@ -1,0 +1,246 @@
+[
+{
+	"uri": "/ko/tip/contributions/",
+	"title": "HUGO",
+	"tags": [],
+	"description": "",
+	"content": "HUGO는 몰라도 되요. 유일하게 다루는건 문서(content), 그리고 이미지(/static/images) 입니다.\n  굳이 알고 싶다면 클릭  원래 디렉토리 구조 .\r├── archetypes\r├── config.toml\r├── content\r├── data\r├── layouts\r├── static\r└── themes\r이것만 알면 됩니다. 폴더 만들고 파일 만드는거 어렵지 않아요.\n.\r├── content\r| ├── tip\r| └── cleanup\r└── static\r└── images\r└── vscode\r그래도 조금 더 보시겠다면, .\r└── layouts\r├── _default\r| └── _markup\r├── partials\r└── shortcodes\r layouts 폴더는 theme가 가지고 있는 layouts 폴더를 Overwrite 하는 구조입니다. (굳이 넣지 않아도 됩니다.)\n  가능하면 Hugo learn 테마 폴더에서는 수정하지 않습니다. 필요할 경우 /layouts 폴더로 복사하여 수정하여 사용합니다.   몇 가지만 수정 기능이 들어가 있습니다.\n  Google Analytics를 활성화 하였습니다. Hyperlink를 클릭하면 새 탭으로 열리게 수정했습니다. (워크샵 페이지에서 페이지 이동하는건 좋지 않습니다.) AWS Logo 이미지를 SVG로 대체하였습니다.  기타 변경사항  Hugo learn 테마는 소스코드에 완전히 넣은게 아니라 Sub Module로 등록되어 있습니다. 만약, 업데이트가 있을 경우, 반영할 수 있습니다. (추천하고 있습니다.) Learn 테마의 CSS 스타일 을 최근 워크샵 스타일에 맞게 수정하였습니다. /static/css/thene-aws.css  :root{\r--MAIN-TEXT-color:#232F3E; /* Color of text by default */\r--MAIN-TITLES-TEXT-color: #161E2D; /* Color of titles h2-h3-h4-h5 */\r--MAIN-LINK-color:#95b0ff; /* Color of links */\r--MAIN-LINK-HOVER-color:#527FFF; /* Color of hovered links */\r--MAIN-ANCHOR-color: #95b0ff; /* color of anchors on titles */\r--MENU-HEADER-BG-color:#161E2D; /* Background color of menu header */\r--MENU-HEADER-BORDER-color:#161E2D; /*Color of menu header border */\r--MENU-SEARCH-BG-color:#202c3c; /* Search field background color (by default borders + icons) */\r--MENU-SEARCH-BOX-color: #4d6584; /* Override search field border color */\r--MENU-SEARCH-BOX-ICONS-color: #4d6584; /* Override search field icons color */\r--MENU-SECTIONS-ACTIVE-BG-color:#232F3E; /* Background color of the active section and its childs */\r--MENU-SECTIONS-BG-color:#161E2D; /* Background color of other sections */\r--MENU-SECTIONS-TEXT-color: #FFFFFF; /*Color of pre text */\r--MENU-SECTIONS-LINK-color: #ccc; /* Color of links in menu */\r--MENU-SECTIONS-LINK-HOVER-color: #e6e6e6; /* Color of links in menu, when hovered */\r--MENU-SECTION-ACTIVE-CATEGORY-color: #232F3E; /* Color of active category text */\r--MENU-SECTION-ACTIVE-CATEGORY-BG-color: #FF9900; /* Color of background for the active category (only) */\r--MENU-SECTION-ACTIVE-CATEGORY-TEXT-color: #fff; /* Color of pre text when selected */\r--MENU-VISITED-color: #527FFF; /* Color of \u0026#39;page visited\u0026#39; icons in menu */\r--MENU-SECTION-HR-color: #20272b; /* Color of \u0026lt;hr\u0026gt; separator in menu */\r}\r@font-face {\rfont-family: \u0026#39;Roboto\u0026#39;;\rsrc: url(\u0026#39;https://fonts.googleapis.com/css?family=Roboto\u0026amp;display=swap\u0026#39;);\r/* src: url(\u0026#34;../webfonts/AmazonEmber_W_Lt.eot\u0026#34;); */\r/* src: url(\u0026#34;../webfonts/AmazonEmber_W_Lt.eot?#iefix\u0026#34;) format(\u0026#34;embedded-opentype\u0026#34;), url(\u0026#34;../webfonts/AmazonEmber_W_Lt.woff2\u0026#34;) format(\u0026#34;woff2\u0026#34;), url(\u0026#34;../webfonts/AmazonEmber_W_Lt.woff\u0026#34;) format(\u0026#34;woff\u0026#34;); */\rfont-style: normal;\rfont-weight: 200;\r}\r@font-face {\rfont-family: \u0026#39;Roboto\u0026#39;;\rsrc: url(\u0026#39;https://fonts.googleapis.com/css?family=Roboto\u0026amp;display=swap\u0026#39;);\r/* src: url(\u0026#34;../webfonts/AmazonEmber_W_Bd.eot\u0026#34;); */\r/* src: url(\u0026#34;../webfonts/AmazonEmber_W_Bd.eot?#iefix\u0026#34;) format(\u0026#34;embedded-opentype\u0026#34;), url(\u0026#34;../webfonts/AmazonEmber_W_Bd.woff2\u0026#34;) format(\u0026#34;woff2\u0026#34;), url(\u0026#34;../webfonts/AmazonEmber_Bd_Lt.woff\u0026#34;) format(\u0026#34;woff\u0026#34;); */\rfont-style: bold;\rfont-weight: 600;\r}\rbody {\rfont-family: \u0026#34;Roboto\u0026#34;, \u0026#34;Work Sans\u0026#34;, \u0026#34;Helvetica\u0026#34;, \u0026#34;Tahoma\u0026#34;, \u0026#34;Geneva\u0026#34;, \u0026#34;Arial\u0026#34;, sans-serif;\rcolor: var(--MAIN-TEXT-color) !important;\r}\rtextarea:focus, input[type=\u0026#34;email\u0026#34;]:focus, input[type=\u0026#34;number\u0026#34;]:focus, input[type=\u0026#34;password\u0026#34;]:focus, input[type=\u0026#34;search\u0026#34;]:focus, input[type=\u0026#34;tel\u0026#34;]:focus, input[type=\u0026#34;text\u0026#34;]:focus, input[type=\u0026#34;url\u0026#34;]:focus, input[type=\u0026#34;color\u0026#34;]:focus, input[type=\u0026#34;date\u0026#34;]:focus, input[type=\u0026#34;datetime\u0026#34;]:focus, input[type=\u0026#34;datetime-local\u0026#34;]:focus, input[type=\u0026#34;month\u0026#34;]:focus, input[type=\u0026#34;time\u0026#34;]:focus, input[type=\u0026#34;week\u0026#34;]:focus, select[multiple=multiple]:focus {\rborder-color: none;\rbox-shadow: none;\r}\rh2, h3, h4, h5, h6 {\rfont-family: \u0026#34;Roboto\u0026#34;, \u0026#34;Work Sans\u0026#34;, \u0026#34;Helvetica\u0026#34;, \u0026#34;Tahoma\u0026#34;, \u0026#34;Geneva\u0026#34;, \u0026#34;Arial\u0026#34;, sans-serif;\rcolor: var(--MAIN-TITLES-TEXT-color) !important;\rfont-weight: 300;\r}\rh1 {\rfont-family: \u0026#34;Roboto\u0026#34;, \u0026#34;Work Sans\u0026#34;, \u0026#34;Helvetica\u0026#34;, \u0026#34;Tahoma\u0026#34;, \u0026#34;Geneva\u0026#34;, \u0026#34;Arial\u0026#34;, sans-serif;\r}\r#chapter h1 {\rmargin-top: 0; }\r#chapter h3 {\rmargin-top: 0;\r}\ra {\rcolor: var(--MAIN-LINK-color);\r}\r.anchor {\rcolor: var(--MAIN-ANCHOR-color);\r}\ra:hover {\rcolor: var(--MAIN-LINK-HOVER-color);\r}\r#sidebar ul li.visited \u0026gt; a .read-icon {\rcolor: var(--MENU-VISITED-color);\r}\r#sidebar #footer {\rpadding-top: 20px !important;\r}\r#sidebar #footer h2.github-title {\rfont-size: 20px;\rcolor: #fd9827 !important;\rmargin: 10px 0px 5px;\rpadding: 0px;\rfont-weight: normal !important;\rmargin-top: 10px;\rpadding-top: 30px;\rborder-top: 1px dotted #384657;\r}\r#sidebar #footer h3.github-title {\rfont-size: 14px;\rmargin: 10px 0px 5px;\rpadding: 0px;\rtext-transform: uppercase;\rletter-spacing: .15px;\r}\r#sidebar #footer h5.copyright, #sidebar #footer p.build-number {\rcolor: var(--MENU-SECTIONS-LINK-color) !important;\rfont-size: 10px;\rletter-spacing: .15px;\rline-height: 150% !important;\rfont-weight: 300;\r}\r#body a.highlight:after {\rdisplay: block;\rcontent: \u0026#34;\u0026#34;;\rheight: 1px;\rwidth: 0%;\r-webkit-transition: width 0.5s ease;\r-moz-transition: width 0.5s ease;\r-ms-transition: width 0.5s ease;\rtransition: width 0.5s ease;\rbackground-color: var(--MAIN-LINK-HOVER-color);\r}\r#sidebar {\rbackground-color: var(--MENU-SECTIONS-BG-color);\r}\r#sidebar #header-wrapper {\rbackground: var(--MENU-HEADER-BG-color);\rcolor: var(--MENU-SEARCH-BOX-color);\rborder-color: var(--MENU-HEADER-BORDER-color);\r}\r#sidebar .searchbox {\rborder-color: var(--MENU-SEARCH-BOX-color);\rbackground: var(--MENU-SEARCH-BG-color);\r}\r#sidebar ul.topics \u0026gt; li.parent, #sidebar ul.topics \u0026gt; li.active {\rbackground: var(--MENU-SECTIONS-ACTIVE-BG-color);\r}\r#sidebar .searchbox * {\rcolor: var(--MENU-SEARCH-BOX-ICONS-color);\r}\r#sidebar a {\rcolor: var(--MENU-SECTIONS-LINK-color);\r}\r#sidebar a b {\rcolor: var(--MENU-SECTIONS-TEXT-color);\r}\r#sidebar a:hover {\rcolor: var(--MENU-SECTIONS-LINK-HOVER-color);\r}\r#sidebar ul li.active \u0026gt; a {\rbackground: var(--MENU-SECTION-ACTIVE-CATEGORY-BG-color);\rcolor: var(--MENU-SECTION-ACTIVE-CATEGORY-color) !important;\r}\r#sidebar ul.topics \u0026gt; li \u0026gt; a b {\rcolor: var(--MENU-SECTION-ACTIVE-CATEGORY-TEXT-color) !important;\ropacity: 1;\r}\r#sidebar hr {\rborder-color: var(--MENU-SECTION-HR-color);\r}\r#sidebar #shortcuts h3 {\rfont-family: \u0026#34;Amazon Eber\u0026#34;, \u0026#34;Novacento Sans Wide\u0026#34;, \u0026#34;Helvetica\u0026#34;, \u0026#34;Tahoma\u0026#34;, \u0026#34;Geneva\u0026#34;, \u0026#34;Arial\u0026#34;, sans-serif;\rcolor: white !important;\rmargin-top:1rem;\rpadding-left: 1rem;\r}\r#navigation a.nav-prev, #navigation a.nav-next {\rcolor: #f19e39 !important;\r}\r#navigation a.nav-prev:hover, #navigation a.nav-next:hover {\rcolor: #e07d04 !important;\r}\rdiv.notices p:first-child:before {\rposition: absolute;\rtop: 2px;\rcolor: #fff;\rfont-family: \u0026#39;Font Awesome\\ 5 Free\u0026#39;;\rcontent: #F06A;\rfont-weight: 900; /* Fix version 5.0.9 */\rleft: 10px;\r}\r.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {\rborder: 1px solid #dddddd;\rfont-weight: normal;\rcolor: #454545;\r}\r.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {\rborder: 1px solid var(--MENU-HEADER-BG-color);\rbackground: var(--MENU-HEADER-BG-color);\rfont-weight: normal;\rcolor: #fff;\r}\r.ui-widget.ui-widget-content {\rborder: 1px solid #eeeeee;\r}\r.ui-widget-header {\rborder: 1px solid #eeeeee;\r}\r.hljs {\rbackground-color: none; }\rpre {\rbackground-color: var(--MENU-SECTIONS-BG-color) !important;\r}\rdiv.notices.info p {\rborder-top: 30px solid #fd9827;\rbackground: #FFF2DB;\r}\r.btn {\rdisplay: inline-block !important;\rpadding: 6px 12px !important;\rmargin-bottom: 0 !important;\rfont-size: 14px !important;\rfont-weight: normal !important;\rline-height: 1.42857143 !important;\rtext-align: center !important;\rwhite-space: nowrap !important;\rvertical-align: middle !important;\r-ms-touch-action: manipulation !important;\rtouch-action: manipulation !important;\rcursor: pointer !important;\r-webkit-user-select: none !important;\r-moz-user-select: none !important;\r-ms-user-select: none !important;\ruser-select: none !important;\rbackground-image: none !important;\rborder: 1px solid transparent !important;\rborder-radius: 4px !important;\r-webkit-transition: all 0.15s !important;\r-moz-transition: all 0.15s !important;\rtransition: all 0.15s !important;\r}\r.btn:focus {\r/*outline: thin dotted;\routline: 5px auto -webkit-focus-ring-color;\routline-offset: -2px;*/\routline: none !important;\r}\r.btn:hover,\r.btn:focus {\rcolor: #2b2b2b !important;\rtext-decoration: none !important;\r}\r.btn-default {\rcolor: #fff !important;\rbackground-color: #527FFF !important;\rborder-color: #527FFF !important;\r}\r.btn-default:hover,\r.btn-default:focus,\r.btn-default:active {\rcolor: #fff !important;\rbackground-color: #95b0ff !important;\rborder-color: #95b0ff !important;\r}\r.btn-default:active {\rbackground-image: none !important;\r}\r#aws-logo {\rmargin-top: 15px;\rmargin-bottom: 25px;\r}\r"
+},
+{
+	"uri": "/ko/tip/",
+	"title": "워크샵 만들기 Tip",
+	"tags": [],
+	"description": "",
+	"content": "다음과 같은 팁들을 활용해서 좀 더 쉽게 만들어 봅시다. "
+},
+{
+	"uri": "/ko/tip/vscode/",
+	"title": "VS Code Extensions 활용",
+	"tags": [],
+	"description": "",
+	"content": "Extension을 설치해 보자 1. Markdown All in One  마크다운 단축키를 제공한다.  2. Markdown Preview Enhanced  마크다운 미리보기 기능  3. Hugo Helper HUGO 서버를 VS Code에서 운영 가능하게 함  Command + Shift + B 누르면, 사이트 테스트 또는 퍼블리싱 가능  4. HUGO 문법 하이라이트   5. TOML 문법 하이라이트 기능 제공  테마 적용하면 더 깔끔 - 개취  "
+},
+{
+	"uri": "/ko/tip/hugo/",
+	"title": "기여도",
+	"tags": [],
+	"description": "",
+	"content": "당신의 손길을 필요로 합니다. 컨텐츠 작성자 최고! 하나의 새로운 컨텐츠를 만드는 것은 쉬운 일이 아닙니다. 따라서 컨텐츠를 만들어 내는 당신은 위대합니다. 이것은 당신 노력의 근거입니다. 수정자도 중요합니다. 시간이 지나면서 새로운 기능이 나오고 콘솔 화면은 변경되기도 합니다. 프로젝트의 규모에 따라서 여러명의 도움이 필요할 수 있습니다. 함께 하세요. 당신의 노력은 모두 기록으로 남을 것입니다. Go Global  이 지구에서 한국어로만 당신의 컨텐츠를 만날수 있다면 엄청난 스킬 낭비입니다. AWS Samples 에서 활약하세요.   이제 아래 대열에 합류 할 차례입니다.  "
+},
+{
+	"uri": "/ko/tip/image/",
+	"title": "이미지",
+	"tags": [],
+	"description": "",
+	"content": " 이미지 관리는 어떻게 할까요?\n 위 다이어그램 이미지는 jpg나 png가 아닌 svg를 활용하였습니다.\n이미지보다 SVG의 장점은? Draw.io를 이용할 경우, 해당 아키텍처를 SVG로 저장할 경우, 수정이 가능하고 벡터 기반이므로 깨지지 않습니다.(아이콘들조차 벡터 기반)\n 폴더 및 파일 관리는 어떻게?  이름에 숫자를 붙여쓸 경우 일괄로 또 수정해야 하므로 번거로울 수 있습니다. 용도에 맞게 폴더로 구분하면 사용시 편리합니다. 답은 없습니다.   Diagram 관리는 어떻게?  Draw.io와 같은 SVG를 지원하는 도구를 이용합니다. Local 파일로 관리하거나, 또는 도구에서 Github 연결을 지원하면, 실시간으로 편집 및 수정할 수 있습니다. (Draw.io 지원)  "
+},
+{
+	"uri": "/ko/tip/aws/",
+	"title": "AWS 설정",
+	"tags": [],
+	"description": "",
+	"content": "S3 환경 만들기 S3 버킷 만들기 정적 웹 호스팅 설정하기  에러 페이지는 404.html 파일로 가도록 설정합니다. (에러 나더라도 문제 없도록, 또는 index.html로 리다이렉트 하게 하거나)\n Route53 설정 서브 도메인 설정 배포 Hugo CLI로 진행하거나, 컴파일된 public 폴더 안에 있는 컨텐츠를 업로드 함.\nCICD 다양한 방법들\u0026hellip; 고민중.\n"
+},
+{
+	"uri": "/ko/tip/ga/",
+	"title": "Google Analytics",
+	"tags": [],
+	"description": "",
+	"content": "GA 설정하는 방법 GA는 추적 ID 한개만 넣으면 통계를 파악할 수 있습니다.\n GA 추적 ID를 받는 방법 다음과 같이 추적 ID를 만들고 해당 ID를 config.toml 파일의 키와 교체합니다. Hugo에 GA를 연결한 실시간 컨텐츠 소비 측정 (워크샵이 진행중일 때, 실시간으로 몇 명이 하고 어디까지 왔는지를 알 수 있습니다.) GA를 연결한 컨텐츠 소비 측정 (컨텐츠의 활용 로그를 수집할 수 있습니다.) "
+},
+{
+	"uri": "/ko/",
+	"title": "워크샵 잘 만들어보기",
+	"tags": [],
+	"description": "",
+	"content": "hugo-workshop 템플릿 설명 본 자료는 Workshop들을 돌아다니면서 코드를 정리한 Hugo Template입니다.\n 사전 설치   HUGO 환경 설치 방법 (for MAC)\n HUGO 설치  brew install hugo\r git 설치  brew install git\r  템플릿 다운로드 및 설정(하단의 workshop-name은 수정해 주세요.) - 테마 업데이트까지 진행\ngit clone https://github.com/studydev/hugo-workshop.git workshop-name\rcd workshop-name\rgit submodule init git submodule update\r  한글 환경 추가 /themes/hugo-theme-learn/i18n/ 폴더에 ko.toml 설정 파일 추가\n[Search-placeholder]\rother = \u0026#34;검색...\u0026#34;\r[Clear-History]\rother = \u0026#34;기록삭제\u0026#34;\r[Attachments-label]\rother = \u0026#34;첨부\u0026#34;\r[title-404]\rother = \u0026#34;에러\u0026#34;\r[message-404]\rother = \u0026#34;죄송합니다. 페이지가 존재하지 않습니다. ㅜ_ㅜ.\u0026#34;\r[Go-to-homepage]\rother = \u0026#34;홈으로\u0026#34;\r[Edit-this-page]\rother = \u0026#34;이 페이지를 편집\u0026#34;\r[Shortcuts-Title]\rother = \u0026#34;More\u0026#34;\r[Expand-title]\rother = \u0026#34;펼치기...\u0026#34;\r  HUGO Template 설정\n config.toml 파일 열어서 아래 내용 수정  # 제작작 변경\r author = \u0026#34;Hyounsoo Kim\u0026#34;\r# 제목 변경\r title = \u0026#34;HUGO 템플릿 활용하기\u0026#34;\r# Google Analytics 추적 ID를 발급 받아서 아래 변경\r googleAnalytics = \u0026#34;UA-160433107-1\u0026#34;\r# 관련된 바로가기 링크들을 수정\r [[menu.shortcuts]] name = \u0026#34;\u0026lt;i class=\u0026#39;fab fa-aws\u0026#39;\u0026gt;\u0026lt;/i\u0026gt; AWS Homepage\u0026#34;\rurl = \u0026#34;https://aws.amazon.com/\u0026#34;\rweight = 1000\r[[menu.shortcuts]]\rname = \u0026#34;\u0026lt;i class=\u0026#39;fas fa-blog\u0026#39;\u0026gt;\u0026lt;/i\u0026gt; AWS Blog\u0026#34;\rurl = \u0026#34;https://aws.amazon.com/blogs/aws/\u0026#34;\rweight = 1020\r[[menu.shortcuts]]\rname = \u0026#34;\u0026lt;i class=\u0026#39;fab fa-facebook-square\u0026#39;\u0026gt;\u0026lt;/i\u0026gt; Facebook\u0026#34;\rurl = \u0026#34;https://www.facebook.com/groups/awskrug/\u0026#34;\rweight = 1030\r# 언어 설정을 추가함\r [Languages]\r[Languages.ko]\rweight = 1\rlanguageName = \u0026#34;한국어\u0026#34;\r[Languages.en]\rweight = 2\rlanguageName = \u0026#34;English\u0026#34;\r# 배포 옵션 정의, public 폴더에 컴파일 된 정적 컨테츠를 S3에 업로드 가능\r [deployment]\r[[deployment.targets]]\rname = \u0026#34;s3\u0026#34;\rURL = \u0026#34;s3://hugo.awsdemo.kr?region=ap-northeast-2\u0026#34;\r  HUGO 로컬 테스트  HUGO 서버 올리기 (port는 1313이며 -p 옵션으로 변경 가능)  hugo server -D\r HUGO 테스트  http://localhost:1313/\r HUGO 서버 컴파일 하기  hugo -d public\rHUGO 배포 public 폴더를 S3에 배포한다. (사전에 AWS CLI가 설치되어 있고 설정이 되어 있어야 합니다.)\nhugo deploy --target=s3\r"
+},
+{
+	"uri": "/ko/introduction/",
+	"title": "소개",
+	"tags": [],
+	"description": "",
+	"content": " 만약 Data Lake와 Lake Formation에 대한 개념을 알고 있다면, 2단계(실습 환경 소개) 로 넘어가세요.\n  1-1. Data Lake  1-2. AWS Lake Formation   "
+},
+{
+	"uri": "/ko/introduction/datalake/",
+	"title": "Data Lake",
+	"tags": [],
+	"description": "",
+	"content": "Data Lake란? 데이터 레이크는 모든 규모의 정형 및 비 정형 데이터를 저장할 수 있는 중앙 집중식 저장소입니다. 데이터를 먼저 구조화 하지 않고도 데이터를 있는 그대로 저장하고 대시보드 및 시각화, 빅데이터 처리, 실시간 분석 및 머신 러닝에 이르기까지 다양한 유형의 분석을 실행하여 더 나은 의사 결정을 내릴 수 있습니다. Data Lake vs Data Warehouse 일반적인 기업은 서로 다른 요구와 사용 사례를 제공하는 데이터 웨어하우스와 데이터 레이크가 모두 필요합니다. 데이터 웨어하우스는 트랜잭션 시스템 및 업무용 애플리케이션에서 생성하는 관계형 데이터를 분석하도록 최적화 된 데이터베이스입니다. 따라서 데이터의 구조 및 스키마를 미리 정의하여 빠른 SQL 쿼리를 실행하도록 설계되었으며, 일반적으로 운영 보고 및 분석을 목적으로 사용합니다. 그리고 데이터는 잘 가공 및 정리가 된 상태이므로 사용자가 신뢰할 수 있는 단일 소스 역할을 수행할 수 있습니다.\n데이터 레이크는 업무용 애플리케이션의 관계형 데이터뿐만 아니라 모바일 앱, IoT 장치 및 소셜 미디어의 비 관계형 데이터를 저장할 수 있기 때문에 데이터 웨어하우스의 접근 방식과 다릅니다. 데이터의 구조 및 스키마를 미리 정의하지 않고, 데이터를 수집한 이후에 어떻게 활용할지 고민합니다. 즉, 미리 스키마를 정의할 필요가 없기 때문에 신중하게 디자인할 필요가 없고 향후 어떤 질문에 대답해야 하는지 미리 알 필요가 없습니다. 데이터 레이크에서 통찰력을 얻기 위해 SQL 쿼리, 빅데이터 분석, Full-text 검색, 실시간 분석 및 머신 러닝과 같은 데이터에 대한 다양한 유형의 분석을 수행할 수 있습니다.\n데이터 웨어하우스를 운영하고 있는 기업들은 데이터 레이크의 이러한 이점을 인식하기 시작하면서 기존의 데이터 웨어하우스를 발전시키기 위해 데이터 레이크를 데이터 분석 아키텍처에 포함시켜 다양한 쿼리 기능 및 데이터 사이언스 사용 사례를 지원하고 있습니다.\n"
+},
+{
+	"uri": "/ko/introduction/lakeformation/",
+	"title": "AWS Lake Formation",
+	"tags": [],
+	"description": "",
+	"content": "AWS Lake Formation AWS Lake Formation은 안전한 데이터 레이크를 손쉽게 설정할 수 있도록 지원하는 서비스입니다. 데이터 레이크는 모든 데이터를 원래 형식 및 분석에 필요한 형식으로 큐레이션 하여 저장합니다. 데이터 레이크를 사용하면 데이터 사일로를 없애고 다양한 유형의 분석을 조합하여 통찰력을 얻을 수 있으며 더 나은 비즈니스 결정을 내릴 수 있습니다.\n하지만 데이터 레이크를 수동으로 설정하고 관리하기 위해서는 수많은 복잡하고 시간 소모적인 작업이 필요합니다. 이러한 작업에는 다양한 소스로부터 데이터 로딩, 데이터 흐름 모니터링, 파티션 설정, 암호화 설정 및 키 관리, 변환 작업 정의 및 운영 모니터링, 컬럼 기반 형식으로 데이터 재구성, 액세스 제어 설정 구성, 중복 데이터 제거, 데이터 세트에 대한 액세스 권한 부여, 추후 액세스 감사 등이 포함됩니다.\nAWS Lake Formation을 사용하여 데이터 레이크를 구축하면 다음과 같은 기능을 통해 데이터 레이크 구축 시간을 수 개월에서 몇 주 또는 며칠로 단축할 수 있습니다.\n 데이터 수집, 정제, 변환 및 분류 데이터 카탈로그 및 검색 인덱싱 데이터 분석 테이블 및 컬럼 레벨의 데이터 보안 중앙 위치에서 데이터 엑세스 관리 데이터 플로우 오케스트레이션  AWS Lake Formation 작동 방식 Lake Formation은 Amazon S3, 관계형 데이터베이스 및 NoSQL 데이터베이스와 같은 기존 데이터 소스를 식별하고 Lake Formation이 관리하는 S3 데이터 레이크 경로로 데이터를 수집합니다. 그런 다음 데이터 분석을 수행할 수 있게 데이터를 크롤링 및 카탈로그화하고, 데이터의 대한 액세스 권한을 설정하여 데이터를 준비합니다. 이 과정이 마무리되면 사용자는 사용 가능한 데이터 세트를 사용자가 원하는 분석 서비스 (Amazon Athena, Amazon Redshift, Amazon EMR 등)를 이용하여 중앙 집중식 데이터 카탈로그를 통해 안전하게 액세스할 수 있습니다. 다른 AWS 서비스 및 3rd party 애플리케이션도 표시된 AWS 분석 서비스를 통해 데이터에 액세스할 수 있습니다. 즉, Lake Formation은 주황색 상자의 모든 작업을 관리하며 파랑색 상자에 표시된 데이터 저장소 및 서비스와 통합됩니다.\n"
+},
+{
+	"uri": "/ko/setup/",
+	"title": "실습 환경 소개",
+	"tags": [],
+	"description": "",
+	"content": " 본 실습을 시작하기 전에 필요한 AWS 리소스를 생성해야 합니다. 실습에 필요한 리소스는 AWS CloudFormation을 사용하여 구성한 다음, Lake Formation 기반의 데이터 레이크를 생성합니다.\n 본 실습은 다음 그림과 같은 데이터 분석 파이프라인을 통해 AWS Lake Formation과 AWS 분석 서비스를 학습하는 것이 목적입니다. AWS Lake Formation은 내부적으로 AWS Glue 서비스의 기능을 기반으로 다양한 AWS 분석 서비스와 결합하여 데이터 레이크를 손쉽게 구축할 수 있습니다. 다양한 Lake Formation 사용 패턴 및 기능을 보여주기 위해 샘플 데이터 세트 및 사용자 그룹을 사용합니다. 데이터베이스 및 테이블 Bank 데이터베이스는 은행이 고객, 직원, 다양한 계좌 및 거래에 대한 정보를 체계적으로 저장할 수 있도록 만들어진 OLTP 데이터베이스 입니다. 실질적으로 은행에서 사용하는 데이터베이스가 아닌 본 실습의 용도를 위해서 설계되었으며 랜덤으로 생성한 가상의 데이터를 제공합니다. 은행은 고객 서비스 및 은행 거래를 개선하기 위해 은행 데이터를 분석하여 의미 있는 보고서를 생성할 수 있습니다. 다음 ER 다이어그램은 뱅킹 거래 및 신용카드 거래와 관련된 테이블의 관계를 나타냅니다. 데이터 레이크 사용자 및 그룹 Lake Formation의 다양한 보안 기능을 시연하기 위해 서로 다른 수준으로 데이터 레이크에 액세스 할 수 있는 몇 개의 테스트 사용자 및 그룹을 사용합니다.\n   사용자 및 역할 설명     If-admin (데이터 레이크 관리자) Lake Formation 구성 요소에 액세스 및 변경 할 수 있는 권한 소유   lf-bank-analyst (뱅킹 거래 분석가) 은행 거래와 관련된 테이블 모두 조회 할 수 있는 권한은 있으나 고객 개인 정보 (예: 이메일, 거주지, 생년월일 등)는 조회 할 수 없는 권한 소유   lf-card-analyst (신용카드 거래 분석가) 신용카드 거래와 관련 된 테이블 모두 조회 할 수 있는 권한은 있으나 고객 개인 정보 (예: 이메일, 거주지, 생년월일 등)는 조회 할 수 없는 권한 소유   lf-supervisor (매니저) 은행의 모든 테이블 및 고객 개인 정보를 조회 할 수 있는 권한 소유    "
+},
+{
+	"uri": "/ko/lab-setup/",
+	"title": "실습 환경 구성",
+	"tags": [],
+	"description": "",
+	"content": "AWS 계정  이미 AWS 계정을 가지고 있다면 즉시 이 실습의 가이드를 따라 진행할 수 있으나, 계정이 없다면 먼저 AWS 계정을 만들어야 합니다.\n AWS 계정 생성 및 활성화 가이드는 다음 링크 를 참조하시기 바랍니다.\n실습은 us-east-1 (버지니아 북부) 리전을 선택합니다. 해당 실습은 다른 AWS 리전에서는 작동하지 않습니다.\n본 실습 시작 전, 실습에 필요한 리소스는 AWS CloudFormation을 사용하여 구성한 다음, Lake Formation 기반의 데이터 레이크를 생성합니다.\n IAM 사용자 AWS 계정을 생성했지만 직접 IAM 사용자를 생성하지 않은 경우, IAM 콘솔을 사용하여 IAM 사용자를 생성 할 수 있습니다. 다음 스텝에 따라 Administrator (관리자) 사용자를 생성합니다. 이미 관리자 사용자가 있다면, 다음 IAM 사용자 생성 작업을 건너 뜁니다.\n AWS 계정 이메일 주소와 비밀번호를 사용하여 AWS 계정의 Root 사용자로 IAM 콘솔 에 로그인 합니다. IAM 콘솔 왼쪽 메뉴 패널에서 Users (사용자)를 선택한 다음 Add user (사용자 추가)를 클릭합니다. User name (사용자 이름)은 Administrator로 입력합니다. AWS Management Console access 체크박스를 선택하고, Custom password를 선택한 다음 비빌번호를 입력합니다. Next: Permissions (다음: 권한)을 클릭합니다.  Attach existing policies directly (기존 정책 직접 연결)를 선택하고 AdministratorAccess 정책에 체크박스를 선택하고 Next: Tags (다음: 태그)를 클릭합니다.  Next: Review (다음: 검토)를 클릭합니다. Administrator 사용자에 AdministratorAccess 관리형 정책이 추가 된 것을 확인하고 Create user (사용자 만들기)를 클릭합니다. 이제 Root 사용자를 로그아웃하고 새로 생성한 Administrator 사용자로 로그인을 합니다. 다음 URL을 사용하여 로그인 할 수 있습니다.   https://\u0026lt;your_aws_account_id\u0026gt;.signin.aws.amazon.com/console/\n\u0026lt;your_aws_account_id\u0026gt;는 본인 AWS 계정의 고유 ID를 입력합니다. Root 사용자로는 해당 실습을 진행할 때 에러가 발생할 수 있습니다. 반드시 admin 유저 계정으로 로그인하여 진행하세요.\n  EC2 Key Pair CloudFormaton template을 사용하여 실습에 필요한 기본 환경을 구성하려면 Amazon EC2 키 페어를 제공해야 합니다. 이미 EC2 키 페어가 있는 경우 다음 작업을 건너 뜁니다.\n Administrator 사용자로 AWS 콘솔에 로그인 한 다음 EC2 콘솔 로 이동합니다. 탐색 창의 Network \u0026amp; Security (네트워크 \u0026amp; 보안)에서 Key Pairs (키 페어)를 선택합니다. Create Key Pair (키 페어 생성)를 클릭합니다. Key pair name (키 페어 이름)에 새 key pair의 이름을 입력 한 다음 Create (생성)을 클릭합니다. .PEM 파일 형식의 Private Key (개인 키) 파일은 브라우저에서 자동으로 다운로드 됩니다. 개인 키는 다음 CloudFormation을 사용할 때 필요합니다.  CloudFormation Template AWS Lake Formation 실습에 필요한 AWS 리소스를 사전에 생성하기 위해 제공된CloudFormation template을 사용하여 CloudFormation stack을 생성합니다. 스택을 생성하면 Amazon RDS에서 실행되는 샘플 bank 데이터베이스, 다양한 보안 패턴을 테스트하기 위한 샘플 사용자, 데이터베이스에 연결하기 위한 Glue connection 및 기타 IAM 리소스가 생성 됩니다. 이 모든 리소스는 AWS에서 안전한 데이터 레이크를 구축하는 데 필요합니다.\nCloudFormation 스택을 시작하려면, Launch Stack 버튼 를 클릭해서 CloudFormation 콘솔로 이동합니다.\n중요: 이 탬플릿은 us-east-1 (버지니아 북부)을 위해 만들어졌으며 다른 AWS 리전에서는 작동하지 않습니다.\n  Launch Stack  스택 생성 단계에서 스택 이름을 입력하고 앞서 생성한 EC2 키 페어를 선택합니다. 그리고 나머지는 기본 값을 유지하고 마지막 단계에서 CloudFormation이 IAM 리소스를 생성할 때 커스텀 이름을 사용할 수 있게 Acknowledge 체크박스를 선택하고 Create stack (스택 생성)을 클릭합니다. CloudFormation 스택을 완료하는 데 약 5분 정도 소요됩니다. CloudFormation 콘솔을 확인하고 아래와 같이 CREATE_COMPLETE 상태를 기다립니다. 스택 생성이 완료되면 AWS 계정에 실습을 실행하는 데 필요한 모든 기본 리소스가 준비 되어있습니다. Outputs 탭에서 Amazon S3의 버킷 이름, 비밀번호 및 Athena 쿼리 결과를 저장할 S3 위치가 표시됩니다. 해당 정보는 본 실습을 진행할 때 사용되기 때문에 복사해 둡니다.\n "
+},
+{
+	"uri": "/ko/build-datalake/",
+	"title": "Data Lake 구축",
+	"tags": [],
+	"description": "",
+	"content": " 이번 실습에서는 Lake Formation의 기본 기능과 서로 다른 구성 요소들을 결합하여 AWS에서 데이터 레이크를 생성하는 방법, 엑세스를 제공하기 위해 다양한 보안 정책을 구성하는 방법 등을 설명하기 위해 다음 단계를 수행합니다.\n  4-1. 관리자 설정  4-2. 데이터베이스 생성  4-3. S3 스토리지 설정  4-4. 데이터 수집을 위한 Blueprint 설정  4-5. 데이터 검증  4-6. 데이터 마트 생성  4-7. 데이터 보안 설정   "
+},
+{
+	"uri": "/ko/build-datalake/admin/",
+	"title": "관리자 설정",
+	"tags": [],
+	"description": "",
+	"content": "데이터 레이크 관리자는 데이터 카탈로그 리소스에 대한 모든 권한을 IAM 사용자 또는 IAM 역할에 부여할 수 있습니다. 데이터 레이크를 구축하기 위한 가장 처음 단계는 데이터 레이크 관리자를 데이터 카탈로그의 첫 번째 사용자로 설정하는 것 입니다.\n  현재 사용 중인 AWS 콘솔에서 로그아웃하고 CloudFormation 스택의 Output 탭 화면에 출력 된 로그인 링크를 사용하여 lf-admin 사용자 (기본 비밀번호: Welcome1)로 로그인 합니다. 중요: 반드시 lf-admin 으로 로그인을 해야 합니다. 이후 실습에서 권한 문제로 진행이 되지 않을 수 있습니다.\n   Lake Formation 콘솔 로 이동합니다.\n  Lake Formation의 모든 리소스에 액세스 할 수 있도록 데이터 레이크 관리자를 설정합니다. Add Administrators 버튼을 클릭하여 데이터 레이크 관리자를 설정합니다.   IAM users and roles 드롭 다운 목록에서 lf-admin IAM 사용자를 선택하고 Save 버튼을 클릭합니다. 이 사용자는 데이터 레이크 관리자로 설정 되었기 때문에, 앞으로 남은 실습 동안 데이터 레이크에 대한 모든 액세스 권한을 갖습니다.   "
+},
+{
+	"uri": "/ko/build-datalake/database/",
+	"title": "데이터베이스 생성",
+	"tags": [],
+	"description": "",
+	"content": "Lake Formation 콘솔에서 새 데이터베이스를 생성합니다.\n  왼쪽 탐색 창에서 Databases를 선택하고 Create database 버튼을 클릭합니다.   Bank 데이터베이스 소스에서 데이터를 수집하여 데이터 레이크를 구축할 계획이므로 데이터베이스의 이름을 bank_db로 지정하겠습니다.\n  Location은 CloudFormation을 통해 생성 된 S3 데이터 레이크 경로를 선택합니다. S3 경로는 CloudFormation 스택의 Outputs 탭을 통해 확인할 수도 있습니다.\n  “Use only IAM access control for new tables in this database” 사용 옵션 선택을 취소 합니다.\n  다음과 같이 설정을 확인하고 Create database 버튼을 클릭합니다.   데이터베이스 생성이 성공하면 다음과 같이 표시됩니다.   "
+},
+{
+	"uri": "/ko/build-datalake/storage/",
+	"title": "S3 스토리지 설정",
+	"tags": [],
+	"description": "",
+	"content": "데이터가 수집되는 Amazon S3 버킷을 데이터 레이크의 스토리지로 등록합니다.\n  왼쪽 탐색 창에서 Data lake locations을 선택하고 Register location을 클릭 합니다.   Amazon S3 경로는 기존 CloudFormation을 통해 생성된 S3 버킷의 경로를 입력합니다.\n  IAM 역할의 경우 Lake Formation에서 생성한 기본 역할 (AWSServiceRoleForLakeFormationDataAccess)을 유지하여 Lake Formation이 S3 버킷에 데이터를 작성할 수 있도록 합니다. 다음 화면과 같이 설정 되었으면 Register location 버튼을 클릭합니다.   다음과 같이 lf-bank_db-bucket이 데이터 레이크의 위치로 등록 되었는지 확인합니다.   "
+},
+{
+	"uri": "/ko/build-datalake/blueprint/",
+	"title": "데이터 수집을 위한 Blueprint 설정",
+	"tags": [],
+	"description": "",
+	"content": "데이터를 담을 데이터 레이크 스토리지가 준비 되었기에 데이터 수집을 위한 Blueprint 설정을 시작할 수 있습니다. Lake Formation의 Blueprint 기능을 사용해 ETL 및 카탈로그 생성 프로세스를 위한 워크플로우를 생성합니다. 2020년 3월 기준, Lake Formation은 MySQL, PostgreSQL, Oracle 및 SQL server와 같은 데이터베이스 소스와 CloudTrail 및 Elastic Load Balancer와 같은 AWS 서비스 로그를 수집하기 위한 두 가지 유형의 Blueprint를 제공합니다.\n본 실습에서는 bank 데이터베이스 소스에서 데이터를 수집하기 때문에 Database blueprints를 사용하여 전체 테이블의 데이터를 데이터 레이크로 수집합니다.\n  왼쪽 탐색 창에서 Blueprints를 선택한 다음 Use blueprints 버튼을 클릭합니다.   Blueprint 유형으로 Database snapshot을 선택합니다.   Database Connection은 CloudFormation을 통해 생성된 BankGlueConnector를 선택하여 RDS에서 실행중인 bank 데이터베이스에 액세스 합니다.\n  Source data path에 bank_db/를 입력하고, Exclude pattern은 기본값으로 유지합니다.   Import target 섹션에서 Target database는 bank_db를 선택하고, Target storage location은 이전에 데이터 레이크 위치로 등록한 S3버킷을 선택한 후에 csv/ prefix를 추가합니다. 그리고 Data format은 csv 포맷으로 데이터를 작성할 수 있게 선택합니다.   Import options 섹션에서 Workflow name을 bank-ingest로 입력하고, IAM role은 LF-GlueServiceRole을 선택하고 Table prefix로 csv를 입력합니다. 그리고 나머지 필드는 기본 값으로 유지합니다.   이제 워크플로우를 생성하기 위해 Create 버튼을 클릭합니다. 워크플로우의 상태가 Creating에서 Successfully created\u0026hellip;로 변경 될 때까지 기다립니다.   새로 생성된 bank-ingest 워크플로우를 선택하고, Actions 드롭 다운 옵션에서 Start를 선택하여 워크플로우를 시작합니다.   Bank 데이터베이스를 데이터 레이크로 수집하는 데 몇 분이 소요됩니다. Last run status를 확인하면 수집 프로세스의 진행 상태가 표시됩니다. 이 실습에 경우 Discovering 단계는 약 4분 정도 소요되고, Importing 단계는 약 23분 정도 소요됩니다. 다음 빨간색 박스 안에 링크를 클릭해서 따라가면, AWS Glue 서비스 콘솔로 이동하여 워크플로우의 진행 상태를 확인할 수 있습니다.   bank-ingest 워크플로우가 성공적으로 완료되면 다음 실습을 진행합니다.   "
+},
+{
+	"uri": "/ko/build-datalake/verify/",
+	"title": "데이터 검증",
+	"tags": [],
+	"description": "",
+	"content": "  Lake Formation의 워크플로우를 통해 Bank 데이터베이스의 원본 데이터가 자동으로 추출 되어 S3 데이터 레이크에 csv 형식으로 저장되었습니다.   그리고 수집된 데이터는 자동으로 카탈로그화 되어 bank_db의 테이블 목록에 표시됩니다.   데이터가 잘 수집되었는지 간단하게 카탈로그화 된 테이블의 샘플 데이터를 확인해 보겠습니다. 예시로 csv_bank_db_banking_transactions 테이블을 클릭합니다.   Action 메뉴에서 View Data를 클릭하면 Amazon Athena 콘솔로 이동하게 됩니다.   Athena를 처음 사용하는 경우 쿼리 결과를 저장할 S3 위치를 설정하라는 메시지가 표시됩니다. 링크를 클릭합니다.   CloudFormation 스택의 Outputs 탭 화면에 출력된 Athena 쿼리 결과 S3 버킷 경로를 입력하고, 버킷 이름 맨 끝에 “/”를 입력하고 저장합니다. (예시: s3://lf-athena-query-results-xxxxxxxx/)   수집 된 각 테이블의 샘플 데이터를 확인하려면 테이블 이름 옆에 Preview table 옵션을 선택하여 샘플 쿼리를 실행할 수 있습니다. Lake Formation의 Blueprint는 데이터 수집 프로세스를 위해 몇 개의 임시 테이블을 생성하며 모든 임시 테이블 이름은 접두사(prefix)로 밑줄(_)로 시작합니다 (예: _csv_bank_db_customers, _temp_csv_bank_db_customers). 계속해서 진행되는 실습에서는 모든 임시 테이블을 제외합니다.\n   "
+},
+{
+	"uri": "/ko/build-datalake/datamart/",
+	"title": "데이터 마트 생성",
+	"tags": [],
+	"description": "",
+	"content": "정규화 구성이 되어있는 소스 데이터 모델을 비 정규화 데이터 모델로 재구성하여 분석 쿼리 실행의 성능을 최적화 합니다. 그리고 Athena, Redshift Spectrum, EMR Spark 등 데이터 레이크의 데이터를 활용하는 분석 서비스의 성능 및 비용을 최적화 하기 위해 csv 파일로 수집된 데이터를 parquet 형식으로 변환합니다.\n데이터 모델을 재구성하고 변환하기 위해 AWS Glue의 ETL job을 작성하여 처리할 수도 있지만, 본 실습에서는 실습 데이터의 사이즈가 크지 않고 익숙한 SQL 기반으로 Athena 쿼리 명령문을 실행하여 데이터 마트를 생성합니다.\n이번 태스크를 완료하면 다음과 같이 2개의 fact와 5개의 dimension으로 구성되는 star schema 데이터 모델이 생성 됩니다.  다음 DDL 명령문을 Athena 쿼리 편집기로 복사하여 각 쿼리 명령문을 마우스로 하이라이트 선택하여 하나씩 실행합니다. 모든 쿼리 실행이 성공적으로 완료되면 lf-bank-db-bucket의 parquet 폴더 안에 fact 및 dimension 테이블의 데이터가 생성되고, Lake Formation의 bank_db 데이터베이스에 연관된 테이블이 생성됩니다.   다음 DDL 명령문을 실행하기 전에 \u0026lt;your AWS account id\u0026gt; 문구는 현재 사용하고 있는 AWS 계정 번호로 변경해야 합니다.\n /*\r* Fact table for bank transactions\r*/\rCREATE TABLE fact_bank_transactions\rWITH (\rexternal_location = \u0026#39;s3://lf-bank-db-bucket-\u0026lt;your AWS account id\u0026gt;/parquet/fact_bank_transactions/\u0026#39;,\rformat = \u0026#39;Parquet\u0026#39;,\rparquet_compression = \u0026#39;SNAPPY\u0026#39;)\rAS SELECT bt.Transaction_id as trans_id, bt.Description as trans_desc, date_format(bt.Date, \u0026#39;%Y%m%d\u0026#39;) as trans_date_key, cu.customer_id, acc.account_id, br.Branch_id,\r(CASE WHEN bt.Transaction_Type=\u0026#39;credit\u0026#39; THEN bt.Amount else bt.Amount*-1 END) as trans_amount, acc.Account_Balance as account_balance\rFROM csv_bank_db_banking_transactions bt, csv_bank_db_customers cu, csv_bank_db_account_customers ac, csv_bank_db_accounts acc, csv_bank_db_branches br\rWHERE bt.Customer_id = cu.Customer_id AND\rcu.Customer_id = ac.Customer_id AND\rac.Account_id = acc.Account_id AND\racc.Branch_id = br.Branch_id;\r/*\r* Fact table for credit card transactions\r*/\rCREATE TABLE fact_card_transactions\rWITH (\rexternal_location = \u0026#39;s3://lf-bank-db-bucket-\u0026lt;your AWS account id\u0026gt;/parquet/fact_card_transactions/\u0026#39;,\rformat = \u0026#39;Parquet\u0026#39;,\rparquet_compression = \u0026#39;SNAPPY\u0026#39;)\rAS SELECT cctr.Transaction_id as trans_id, cctr.CC_Number as credit_card_num,\rcc.Customer_id as customer_id,\rdate_format(cctr.Transaction_Date, \u0026#39;%Y%m%d\u0026#39;) as trans_date_key, cctr.Merchant_Details as merchant_details,\rcctr.Amount as trans_amount\rFROM\rcsv_bank_db_customers cu, csv_bank_db_credit_cards cc, csv_bank_db_cc_transactions cctr\rWHERE\rcu.Customer_id = cc.Customer_id AND\rcc.CC_number = cctr.CC_Number;\r/*\r* Dimension table for branches\r*/\rCREATE TABLE dim_branches\rWITH (\rexternal_location = \u0026#39;s3://lf-bank-db-bucket-\u0026lt;your AWS account id\u0026gt;/parquet/dim_branches/\u0026#39;,\rformat = \u0026#39;Parquet\u0026#39;,\rparquet_compression = \u0026#39;SNAPPY\u0026#39;)\rAS SELECT\rbr.Branch_id as branch_id,\rbr.Branch_Name as branch_name,\rbr.Street_Address as street_addr,\rbr.City as city,\rbr.State as state,\rbr.Zipcode as postcode,\rbr.Phone_Number as phone_number\rFROM csv_bank_db_branches br;\r/*\r* Dimension table for accounts\r*/\rCREATE TABLE dim_accounts\rWITH (\rexternal_location = \u0026#39;s3://lf-bank-db-bucket-\u0026lt;your AWS account id\u0026gt;/parquet/dim_accounts/\u0026#39;,\rformat = \u0026#39;Parquet\u0026#39;,\rparquet_compression = \u0026#39;SNAPPY\u0026#39;)\rAS SELECT\racc.Account_id as account_id, acc.Account_Type as account_type, acc.Date_Opened as date_opened\rFROM csv_bank_db_accounts acc, csv_bank_db_account_type acct\rWHERE acc.Account_Type = acct.Account_Type;\r/*\r* Dimension table for customers\r*/\rCREATE TABLE dim_customers\rWITH (\rexternal_location = \u0026#39;s3://lf-bank-db-bucket-\u0026lt;your AWS account id\u0026gt;/parquet/dim_customers/\u0026#39;,\rformat = \u0026#39;Parquet\u0026#39;,\rparquet_compression = \u0026#39;SNAPPY\u0026#39;)\rAS SELECT cu.customer_id, concat(cu.First_Name, \u0026#39; \u0026#39;, cu.Last_Name) as full_name, cu.Date_of_Birth as date_of_birth, cu.Street_Address as street_addr, cu.City as city, cu.Zipcode as postcode, cu.Email as email, cu.Sex as gender\rFROM csv_bank_db_customers cu\r/*\r* Dimension table for credit cards\r*/\rCREATE TABLE dim_credit_cards\rWITH (\rexternal_location = \u0026#39;s3://lf-bank-db-bucket-\u0026lt;your AWS account id\u0026gt;/parquet/dim_credit_cards/\u0026#39;,\rformat = \u0026#39;Parquet\u0026#39;,\rparquet_compression = \u0026#39;SNAPPY\u0026#39;)\rAS SELECT CC_number as credit_card_num, Maximum_Limit as max_limit,\rExpiry_Date as expiry_date,\rCredit_Score as credit_score\rFROM csv_bank_db_credit_cards cc;\r 추가적으로 데이터 마트에 필요한 Date dimension 테이블을 생성하기 위해 다음 date.csv 파일을 다운로드 받습니다.\n date.csv    Amazon S3 콘솔로 이동하여 lf-bank-db-bucket의 csv 폴더 안에 csv_bank_db_date 폴더를 만들고 다운로드 받은 csv 파일을 업로드 합니다.   Athena 콘솔로 돌아와서 다음 DDL 명령문을 실행하여 업로드 한 csv 데이터에 대한 External (외부) 테이블을 만들고 parquet 형식의 Date dimension 테이블을 생성합니다.   중요: 다음 DDL 명령문을 실행하기 전에 \u0026lt;your AWS account id\u0026gt; 문구는 현재 사용하고 있는 AWS 계정 번호로 변경해야 합니다.\n /*\r* Date table in CSV format\r*/\rCREATE EXTERNAL TABLE IF NOT EXISTS csv_bank_db_date (\rdate_key string,\ryear string,\rmonth string,\rmonth_name string,\rday string\r)\rROW FORMAT SERDE \u0026#39;org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe\u0026#39;\rWITH SERDEPROPERTIES (\r\u0026#39;serialization.format\u0026#39; = \u0026#39;,\u0026#39;,\r\u0026#39;field.delim\u0026#39; = \u0026#39;,\u0026#39;\r) LOCATION \u0026#39;s3://lf-bank-db-bucket-\u0026lt;your AWS account id\u0026gt;/csv/csv_bank_db_date/\u0026#39;\rTBLPROPERTIES (\u0026#39;has_encrypted_data\u0026#39;=\u0026#39;false\u0026#39;, \u0026#39;skip.header.line.count\u0026#39;=\u0026#39;1\u0026#39;);\r/*\r* Dimension table for Date in parquet format\r*/\rCREATE TABLE dim_date\rWITH (\rexternal_location = \u0026#39;s3://lf-bank-db-bucket-\u0026lt;your AWS account id\u0026gt;/parquet/dim_date/\u0026#39;,\rformat = \u0026#39;Parquet\u0026#39;,\rparquet_compression = \u0026#39;SNAPPY\u0026#39;)\rAS SELECT * FROM csv_bank_db_date;\r모든 DDL 명령문이 성공적으로 실행 되었으면 2개의 fact 및 5개의 dimension 테이블이 목록에 표시됩니다. 이제 데이터 마트가 생성 되었습니다. 이제 다음 단계로 넘어가 데이터 보안 설정을 시작합니다.   "
+},
+{
+	"uri": "/ko/build-datalake/security/",
+	"title": "데이터 보안 설정",
+	"tags": [],
+	"description": "",
+	"content": "AWS Lake Formation의 주요 기능 중 하나는 데이터 레이크의 보안을 중앙에서 통제 할 수 있는 것입니다. Lake Formation은 IAM 기반의 권한 모델을 보강하는 자체 권한 모델을 제공합니다.\n다음 실습에서는 데이터 레이크로 수집 및 큐레이션된 bank 데이터에 대한 세분화된 엑세스 정책을 bank_db 카탈로그의 테이블 및 컬럼을 통해 정의합니다.\n본 실습에서 사용할 사용자는 이미 CloudFormation을 통해 생성되어 있습니다.\n Admin (lf-admin): 데이터 레이크 관리자 권한이 있는 사용자입니다. 관리자는 데이터 카탈로그 및 데이터 저장 위치에 액세스 할 수 있고 Lake Formation의 모든 기능을 사용할 수 있는 추가 권한을 보유합니다. Bank Analyst (lf-bank-analyst): 은행 거래와 관련된 테이블에 모두 엑세스 할 수 있는 사용자 입니다. 단 이 사용자는 고객 테이블에서 개인 식별 정보 (이메일, 생년월일, 주소 등)에 해당하는 데이터 액세스는 제한 됩니다. Credit Card Analyst (lf-card-analyst): 신용 카드 거래와 관련된 테이블에 모두 액세스 할 수 있는 사용자 입니다. 단 이 사용자는 고객 테이블에서 개인 식별 정보 (이메일, 생년월일, 주소 등)에 해당하는 데이터 액세스는 제한 됩니다. Supervisor (lf-supervisor): 은행 및 신용카드 거래와 관련된 모든 테이블에 액세스 할 수 있는 사용자 입니다. 이 사용자는 고객의 개인 식별 정보 또한 액세스 할 수 있습니다.   Bank Analyst 사용자   Lake Formation 콘솔 왼쪽 탐색 창에서 Data Permissions을 선택 합니다.   Grant 버튼을 클릭합니다.   Grant Permissions 팝업 창이 뜨면, IAM users and roles drop-down 옵션에서 lf-bank-analyst을 선택합니다. Database는 bank_db를 선택하고, Table은 dim_accounts, dim_branches, dim_date와 fact_bank_transactions을 선택합니다. 그리고 Table permissions은 Select 권한만 선택하고 Grant를 클릭하여 권한을 부여합니다.   추가 권한을 부여하기 위해 Data permissions에서 Grant 버튼을 클릭합니다.   Grant Permissions 팝업 창이 뜨면, IAM users and roles drop-down 옵션에서 lf-bank-analyst을 선택합니다. Database는 bank_db를 선택하고, Table은 dim_customers을 선택하되 개인정보 (PII)가 포함된 컬럼(생일, 주소, 거주지, 우편번호, 이메일, 성별 등)은 Exclude(제외)합니다. 그리고 Table permissions은 Select 권한만 선택하고 Grant를 클릭하여 권한을 부여합니다.   dim_customers 테이블의 경우 lf-bank-analyst 사용자는 개인 식별 정보(PII)가 포함되어 있지 않은 컬럼만 조회 할 수 있습니다.\n   Credit Card Analyst 사용자   Data permissions에서 Grant 버튼을 클릭합니다.   Grant Permissions 팝업 창이 뜨면, IAM users and roles drop-down 옵션에서 lf-card-analyst을 선택합니다. Database는 bank_db를 선택하고, Table은 dim_credit_cards, dim_date와 fact_card_transactions을 선택합니다. 그리고 Table permissions은 Select 권한만 선택하고 Grant를 클릭하여 권한을 부여합니다.   추가 권한을 부여하기 위해 Data permissions에서 Grant 버튼을 클릭합니다.   Grant Permissions 팝업 창이 뜨면, IAM users and roles drop-down 옵션에서 lf-card-analyst을 선택합니다. Database는 bank_db를 선택하고, Table은 dim_customers을 선택하되 개인정보 (PII)가 포함된 컬럼은 Exclude(제외)합니다. 그리고 Table permissions은 Select 권한만 선택하고 Grant를 클릭하여 권한을 부여합니다.   dim_customers 테이블의 경우 lf-card-analyst 사용자는 개인 식별 정보(PII)가 포함되어 있지 않는 컬럼만 조회 할 수 있습니다.\n   Supervisor 사용자   Data permissions에서 Grant 버튼을 클릭합니다.   Grant Permissions 팝업 창이 뜨면, IAM users and roles drop-down 옵션에서 lf-supervisor을 선택합니다. Database는 bank_db를 선택하고, Table은 모든 fact 테이블과 dimension 테이블을 선택합니다. 그리고 Table permissions은 Select 권한만 선택하고 Grant를 클릭하여 권한을 부여합니다. 지금까지 총 3명의 사용자의 대한 데이터 액세스 권한을 부여하였고, 이제 분석 단계에서 Amazon Athena 콘솔로 이동하여 각 사용자의 권한을 테스트 해 볼 수 있습니다.\n  "
+},
+{
+	"uri": "/ko/analytic/athena/bank-analyst/",
+	"title": "Bank Analyst",
+	"tags": [],
+	"description": "",
+	"content": " Bank Analyst는 은행 거래와 관련된 테이블만 액세스 할 수 있으며 고객 테이블의 개인 식별 정보는 조회 할 수 없습니다.\n 이번 태스크를 수행하기 위해 lf-bank-analyst IAM 사용자로 AWS 계정에 로그인 합니다 (기본 비밀번호: Welcome1).\n  AWS 콘솔에서 Amazon Athena를 검색하여 Athena 콘솔로 이동합니다.   lf-bank-analyst로 로그인 되었는지 한 번 더 확인합니다. 다른 사용자로 로그인 되었다면 로그아웃을 하신 이후 lf-bank-analyst로 로그인 하십시오.   bank_db 데이터베이스의 테이블 목록을 보시면 lf-bank-analyst 사용자는 dim_accounts, dim_branches, dim_customers, dim_date와 fact_bank_transactions 테이블만 표시 되어 있습니다. 그리고 dim_customer 의 컬럼 목록에는 개인 정보 컬럼을 제외한 나머지 컬럼만 표시 되어 있습니다.\n  lf-bank-analyst 사용자가 Athena를 처음 사용하기 때문에 쿼리 결과를 저장할 S3 위치를 설정하라는 메시지가 표시됩니다. 링크를 클릭합니다.   CloudFormation 스택의 Outputs 탭 화면에 출력 된 Athena 쿼리 결과 S3 버킷 경로를 입력하고, 버킷 이름 맨 끝에 “/”를 입력하고 저장합니다. (예시: s3://lf-athena-query-results-xxxxxxxx/)   화면 왼쪽 상단에서 Saved Queries (저장된 쿼리)를 선택하고 LF-BankAnalyst-Query를 선택하면 쿼리 편집기로 쿼리가 복사됩니다.   각 쿼리를 마우스로 드래그 앤 드랍으로 하이라이트 영역으로 선택하여 한 번에 하나씩 실행합니다. 처음 세 개의 쿼리를 실행하면 몇 초 내에 결과가 나타납니다.   네 번째 쿼리를 실행하면 bank analyst가 고객의 개인 정보 컬럼에 접근 권한이 없기 때문에 다음과 같은 오류 메시지가 나타납니다.   마지막 쿼리를 실행하면 bank analyst가 신용 카드 거래와 관련 된 테이블에 접근 권한이 없기 때문에 다음과 같은 오류 메시지가 나타납니다.   "
+},
+{
+	"uri": "/ko/analytic/athena/credit-card-analyst/",
+	"title": "Credit Card Analyst",
+	"tags": [],
+	"description": "",
+	"content": " Credit Card Analyst는 신용카드 거래와 관련된 테이블만 액세스 할 수 있으며 고객 테이블의 개인 식별 정보는 조회 할 수 없습니다.\n 이번 태스크를 수행하기 위해 lf-card-analyst IAM 사용자로 AWS 계정에 로그인 합니다 (기본 비밀번호: Welcome1).\n  Athena 콘솔에 lf-card-analyst로 로그인 되었는지 한 번 더 확인합니다. 다른 사용자로 로그인 되어 있다면 로그아웃 이후 lf-card-analyst로 로그인 합니다.   bank_db 데이터베이스의 테이블 목록을 보시면 lf-card-analyst 사용자는 dim_credit_cards, dim_customers, dim_date와 fact_card_transactions 테이블만 표시 되어 있습니다. 그리고 dim_customer의 컬럼 목록에는 개인 정보 컬럼을 제외한 나머지 컬럼만 표시 되어 있습니다.   lf-card-analyst 사용자가 Athena를 처음 사용하기 때문에 쿼리 결과를 저장할 S3 위치를 설정하라는 메시지가 표시됩니다. 링크를 클릭합니다.   CloudFormation 스택의 Outputs 탭 화면에 출력 된 Athena 쿼리 결과 S3 버킷 경로를 입력하고, 버킷 이름 맨 끝에 “/”를 입력하고 저장합니다. (예시: s3://lf-athena-query-results-xxxxxxxx/)   화면 왼쪽 상단에서 Saved Queries (저장된 쿼리)를 선택하고 LF-CardAnalyst-Query를 선택하면 쿼리 편집기로 쿼리가 복사됩니다.   각 쿼리를 마우스로 하이라이트 선택하여 한 번에 하나씩 실행합니다. 처음 세 개의 쿼리를 실행하면 몇 초 내에 결과가 나타납니다.   네번째 쿼리를 실행하면 card analyst가 고객의 개인 정보 컬럼에 접근 권한이 없기 때문에 다음과 같은 오류 메시지가 나타납니다.   마지막 쿼리를 실행하면 card analyst가 은행 거래와 관련 된 테이블에 접근 권한이 없기 때문에 다음과 같은 오류 메시지가 나타납니다.   "
+},
+{
+	"uri": "/ko/analytic/",
+	"title": "Data Lake 기반 분석",
+	"tags": [],
+	"description": "",
+	"content": " 본 실습은 Amazon Athena와 Amazon Redshift를 이용해서 Data Lake에 저장된 데이터를 분석할 수 있습니다.\n  5-1. Athena를 이용한 분석  5-2. Redshift를 이용한 분석   "
+},
+{
+	"uri": "/ko/analytic/athena/supervisor/",
+	"title": "Supervisor",
+	"tags": [],
+	"description": "",
+	"content": " Supervior는 은행 및 신용카드 거래와 관련된 모든 테이블에 액세스할 수 있으며 고객 테이블의 개인 식별 정보 또한 조회할 수 있는 권한이 있습니다.\n 이번 태스크를 수행하기 위해 lf-supervisor IAM 사용자로 AWS 계정에 로그인 합니다 (기본 비밀번호: Welcome1).\n  Athena 콘솔에 lf-supervisor 로 로그인 되었는지 한 번 더 확인합니다. 다른 사용자로 로그인 되어 있다면 로그아웃 한 이후에 lf-supervisor로 로그인 하십시오.   bank_db 데이터베이스의 테이블 목록을 보면 모든 fact 테이블 및 dimension 테이블이 표시됩니다. 그리고 dim_customer 테이블을 확장하면 모든 개인 정보 컬럼 또한 표시 되어 있습니다.   lf-supervisor 사용자가 Athena를 처음 사용하기 때문에 쿼리 결과를 저장할 S3 위치를 설정하라는 메시지가 표시됩니다. 링크를 클릭합니다.   CloudFormation 스택의 Outputs 탭 화면에 출력된 Athena 쿼리 결과 S3 버킷 경로를 입력하고, 버킷 이름 맨 끝에 “/”를 입력하고 저장합니다. (예시: s3://lf-athena-query-results-xxxxxxxx/)   화면 왼쪽 상단에서 Saved Queries (저장된 쿼리)를 선택하고 LF-Supervisor-Query를 선택하면 쿼리 편집기로 쿼리가 복사됩니다.   각 쿼리를 마우스로 하이라이트 선택하여 한 번에 하나씩 실행합니다. 쿼리를 실행하면 몇 초 내에 결과가 나타납니다.   예상대로 Supervisor의 쿼리는 모든 테이블에 데이터를 조회할 수 있습니다. 이렇게 해서 Lake Formation의 액세스 권한 모델이 잘 동작하는 것을 확인 하였습니다.\n  "
+},
+{
+	"uri": "/ko/analytic/athena/",
+	"title": "Athena를 이용한 분석",
+	"tags": [],
+	"description": "",
+	"content": "지금까지 완료한 실습은 원시 데이터 수집, 변환 및 로드 (ETL) 프로세스를 체계화하고 데이터를 액세스 할 사용자에 대한 세분화된 데이터 액세스 권한을 설정 하였습니다.\n이번 실습에서는 Amazon Athena를 사용하여 앞서 설정한 3명의 사용자의 대한 데이터 레이크 액세스 권한을 테스트 합니다.\n Bank Analyst  Credit Card Analyst   Supervisor   "
+},
+{
+	"uri": "/ko/analytic/redshift/create-cluster-iam/",
+	"title": "Redshift 클러스터 IAM 역할 설정",
+	"tags": [],
+	"description": "",
+	"content": " 이번 실습에서는 Redshift에서 Lake Formation 기반의 데이터 레이크를 액세스하기 위해 필요한 IAM 권한을 설정합니다.\n   관리자 권한(AdministratorAccess)이 있는 사용자로 IAM 콘솔 로 로그인을 합니다.\n  탐색 창에서 Policies (정책)을 선택합니다. 만약 정책을 처음 선택하는 경우 Welcome to Managed Policies(관리형 정책 시작) 페이지가 나타납니다. 그럴 경우 Get Started(시작)을 선택하십시오.\n  Create policy (정책 생성)을 선택합니다.\n  JSON 탭을 선택합니다.\n  다음 JSON 정책 문서를 붙여 넣습니다.\n  {\r\u0026#34;Version\u0026#34;: \u0026#34;2012-10-17\u0026#34;,\r\u0026#34;Statement\u0026#34;: [\r{\r\u0026#34;Effect\u0026#34;: \u0026#34;Allow\u0026#34;,\r\u0026#34;Action\u0026#34;: [\r\u0026#34;lakeformation:GetDataAccess\u0026#34;,\r\u0026#34;glue:GetTable\u0026#34;,\r\u0026#34;glue:GetTables\u0026#34;,\r\u0026#34;glue:SearchTables\u0026#34;,\r\u0026#34;glue:GetDatabase\u0026#34;,\r\u0026#34;glue:GetDatabases\u0026#34;,\r\u0026#34;glue:GetPartitions\u0026#34;\r],\r\u0026#34;Resource\u0026#34;: \u0026#34;*\u0026#34;\r}\r]\r}\r 완료되면 Review(정책 검토)를 선택하여 정책을 검토합니다.\n  Review policy(정책 검토) 페이지에서 정책의 이름을 RedshiftLakeFormationPolicy로 입력하고, 옵션으로 간단한 설명을 Description 필드안에 입력합니다. 그런 다음, Summary (요약)에서 해당 정책이 부여한 권한을 확인하고 Create policy(정책 생성)을 선택하여 정책을 생성합니다.   IAM 콘솔의 탐색 창에서 Roles(역할)을 선택한 다음 Create role(역할 생성)을 선택합니다.\n  Select type of trusted entity(신뢰할 수 있는 유형의 개체) 선택에서 AWS Service를 선택합니다. Choose the service that will use this role (이 역할을 사용할 서비스 선택)에서 Redshift를 선택합니다. Select your use case(사용 사례 선택)에서 Redshift Customizable를 선택한 다음 Next: Permission(다음: 권한)을 클릭합니다.   이전에 생성한 RedshiftLakeFormationPolicy 정책을 검색하고 목록에서 정책 이름 옆에 있는 선택란을 선택 합니다. 그리고 Next: Tags(다음:태그)를 클릭합니다.   Next: Review (다음: 검토)를 선택합니다.\n  Role name (역할 이름)에 RedshiftLakeFormationRole을 입력하고 Create role(역할 생성)을 클릭합니다.\n  다음은 Bank Analyst (lf-bank-analyst) 사용자가 Redshift에서 쿼리를 실행할 수 있도록 필요한 권한을 부여합니다. 탐색 창에서 Users(사용자)를 선택하고 lf-bank-analyst 사용자를 클릭합니다.   다음 Managed policy(관리형 정책)을 정책에 추가합니다.\n   AmazonRedshiftReadOnlyAccess AmazonRedshiftQueryEditor   "
+},
+{
+	"uri": "/ko/analytic/redshift/",
+	"title": "Redshift를 이용한 분석",
+	"tags": [],
+	"description": "",
+	"content": "Amazon Redshift는 MPP 아키텍처 기반의 데이터 웨어하우스 (DW) 서비스 입니다. Redshift를 사용하여 Petabyte 급의 전형적인 DW 환경을 구축하여 운영할 수 있습니다. Redshift는 또한 Redshift Spectrum이라는 기능을 통해 잠재적으로 Exabyte 급의 데이터가 저장된 Amazon S3 기반의 데이터 레이크로 쿼리를 확장하여 집계할 수도 있습니다. 이번 실습에서는 Redshift Spectrum을 설정하여 데이터 레이크를 쿼리하기 위해 다음 단계를 수행합니다.\n Redshift 클러스터 IAM 역할 설정  Redshift 클러스터 생성  Lake Formation 카탈로그 보안 설정  Redshift Spectrum 쿼리 실행   Redshift 클러스터는 Administrator (관리자)로 생성하고 Redshift 쿼리 편집기에는 Bank Analyst로 로그인하여 쿼리를 실행 합니다.\n "
+},
+{
+	"uri": "/ko/analytic/redshift/create-cluster/",
+	"title": "Redshift 클러스터 생성",
+	"tags": [],
+	"description": "",
+	"content": " 이번 실습에서는 Redshift Spectrum 쿼리를 실행하기 위해 필요한 기본적인 Redshift 클러스터 환경을 구성합니다.\n Redshift 클러스터는 AdministratorAccess 권한을 가진 관리자로 생성합니다.\n   Redshift 콘솔 로 이동하여, AdministratorAccess 권한이 있는 사용자로 로그인을 합니다.\n  Redshift 메인 페이지가 보이면 Create cluster(클러스터 생성)를 클릭합니다.   Cluster configuration (클러스터 구성) 팝업 화면에서 다음과 같이 설정합니다.\n     Key Value     Node type d2.large   Nodes 1   Cluster identifier redshift-lakeformation-demo   Database name dev   Database port 5439   Master user name awsuser   Master user password Welcome1!   Available IAM roles RedshiftLakeFormationRole     RedshiftLakeFormationRole을 선택한 후에 Add IAM role 버튼을 반드시 클릭 해야 합니다. Add IAM role을 클릭하면 다음과 같이 RedshiftLakeFormationRole이 클러스터와 연동됩니다.\n  설정을 완료했으면 Redshift 클러스터를 생성합니다.   클러스터의 상태가 Available이 될 때까지 잠시 대기합니다. 상태가 변경될 때까지 새로 고침 아이콘을 주기적으로 클릭합니다.\n  "
+},
+{
+	"uri": "/ko/analytic/redshift/lake-formation-catalog/",
+	"title": "Lake Formation 카탈로그 보안 설정",
+	"tags": [],
+	"description": "",
+	"content": " 이번 실습에서는 Redshift 사용자가 Lake Formation 카탈로그를 통해 데이터 레이크를 쿼리하기 위한 보안 설정을 수행합니다.\n   Lake Formation 콘솔 로 이동하여 데이터레이크 관리자, lf-admin 로 로그인을 합니다.\n  Lake Formation 왼쪽 탐색 창에서 Data Permissions을 클릭 합니다.   Grant 버튼을 클릭합니다.   Grant Permissions 팝업 창이 뜨면, IAM users and roles drop-down 옵션에서 RedshiftLakeFormationRole을 선택합니다. Database는 bank_db를 선택하고, Table은 dim_accounts, dim_branches, dim_date와 fact_bank_transactions을 선택합니다. 그리고 Table permissions은 Select 권한만 선택하고 Grant를 클릭하여 권한을 부여합니다.   추가 권한을 부여하기 위해 Data permissions에서 Grant 버튼을 클릭합니다.   Grant Permissions 팝업 창이 뜨면, IAM users and roles drop-down 옵션에서 RedshiftLakeFormationRole을 선택합니다. Database는 bank_db를 선택하고, Table은 dim_customers을 선택하되 개인정보 (PII)가 포함된 컬럼은 Exclude(제외)합니다. 그리고 Table permissions은 Select 권한만 선택하고 Grant를 클릭하여 권한을 부여합니다.   dim_customers 테이블의 경우 RedshiftLakeFormationRole 역할은 개인 식별 정보(PII)가 포함되어 있지 않는 컬럼만 조회 할 수 있습니다.\n  "
+},
+{
+	"uri": "/ko/analytic/redshift/spectrum-query/",
+	"title": "Redshift Spectrum 쿼리 실행",
+	"tags": [],
+	"description": "",
+	"content": " Amazon Redshift Spectrum은 Data Lake (S3)에 저장된 데이터에 대한 복잡한 쿼리를 로드하거나 다른 데이터를 준비할 필요 없이 바로 실행할 수 있습니다.\n   IAM 콘솔에서 로그아웃을 하고, Redshift 콘솔 로 이동하여 lf-bank-analyst 사용자로 로그인을 합니다.\n  Redshift 콘솔 메뉴에서 Editor (편집기)를 클릭합니다. 그 다음, Connect to database (데이터베이스 연결) 팝업 창에서 Redshift 클러스터의 연결 정보로 클러스터에 연결 합니다.\n     Key Value     Cluster identifier redshift-lakeformation-demo   Database name dev   Master user name awsuser   Master user password Welcome1!    Query 1 탭의 텍스트 상자 안에 External Schema (외부 스키마)를 생성하기 위해 다음 DDL 명령문을 실행하여 Lake Formation의 bank_db 데이터베이스를 Amazon Redshift의 lf_schema 외부 스키마와 매핑 합니다.   다음 DDL 명령문을 실행할 때 \u0026lt;account-id\u0026gt;를 현재 사용하고 있는 AWS 계정 번호로 변경하고, region을 현재 사용하고 있는 AWS Region의 API 값으로 변경해야 합니다. 현재 사용하고 있는 리전이 버지니아 북부라면 us-east-1 으로 교체하십시오.\n create external schema if not exists lf_schema\rfrom DATA CATALOG database \u0026#39;bank_db\u0026#39;\riam_role \u0026#39;arn:aws:iam::\u0026lt;account-id\u0026gt;:role/RedshiftLakeFormationRole\u0026#39;\rregion \u0026#39;us-east-1\u0026#39;;\r다음 SELECT 명령문을 실행하면, 쿼리 결과에 외부 스키마에 속한 Lake Formation 테이블을 확인할 수 있습니다.  select * from svv_external_tables;\r Select Schema(스키마 목록)에서 lf_schema를 선택하면, 이전에 Lake Formation에서 RedshiftLakeFormationRole에게 Select 권한을 부여 한 테이블만 목록에 표시됩니다.   이전 Athena 콘솔에서 실행했던 Bank Analyst (lf-bank-analyst)의 쿼리를 실행하여 Lake Formation에서 정의한 권한이 적용되는지 결과를 확인합니다.\n  다음 쿼리를 Query 1 탭에서 텍스트 상자에 붙여 놓고 각 쿼리를 마우스로 하이라이트 선택하여 한 번에 하나씩 실행합니다. 처음 세 개의 쿼리를 실행하면 성공적으로 쿼리 결과가 하단에 나타납니다.\n/* * 1. 가장 많은 자산을 보유하고 있는 Top 10 은행 지점?\r*/\rSELECT br.branch_name, br.state, sum(f.trans_amount) as total_amount\rFROM lf_schema.fact_bank_transactions f, lf_schema.dim_branches br\rWHERE f.branch_id = br.branch_id\rGROUP BY br.branch_name, br.state\rORDER BY total_amount desc\rLIMIT 10;\r/* * 2. 가장 많은 고객을 유치하고 있는 Top 10 은행 지점은?\r*/\rSELECT br.branch_name, br.state, count(distinct f.customer_id) as NumberOfCustomers\rFROM lf_schema.fact_bank_transactions f, lf_schema.dim_branches br\rWHERE f.branch_id = br.branch_id\rGROUP BY br.branch_name, br.state\rORDER BY NumberOfCustomers desc; /* * 3. 저축 예금 계좌의 잔고가 10만불 이상인 고객은? */\rSELECT distinct fc.customer_id, cu.full_name as customer_name, fc.account_id, ac.account_type, fc.account_balance\rFROM lf_schema.fact_bank_transactions fc, lf_schema.dim_accounts ac, lf_schema.dim_customers cu\rWHERE fc.account_id = ac.account_id\rAND fc.customer_id = cu.customer_id\rAND ac.account_type = \u0026#39;savings\u0026#39;\rAND fc.account_balance \u0026gt; 100000\rORDER BY fc.account_balance desc;\r/*\r* 4. 권한이 없는 개인 정보 데이터에 액세스 시도를 했을때 오류 발생\r*/\rSELECT cu.customer_id, cu.full_name, cu.date_of_birth, cu.email, cu.gender, fb.trans_amount, fb.account_balance\rFROM lf_schema.fact_bank_transactions fb, lf_schema.dim_customers cu\rWHERE fb.customer_id = cu.customer_id\r/*\r* 5. 권한이 없는 테이블에 액세스 시도를 했을때 오류 발생\r*/\rSELECT * FROM lf_schema.fact_card_transactions LIMIT 10;\r 네 번째 쿼리를 실행하면 bank analyst가 고객의 개인 정보 컬럼에 접근 권한이 없기 때문에 다음과 같은 오류 메시지가 나타납니다.   마지막 쿼리를 실행하면 bank analyst는 신용 카드 거래와 관련된 테이블에 접근 권한이 없기 때문에 다음과 같은 오류 메시지가 나타납니다.   "
+},
+{
+	"uri": "/ko/cleanup/",
+	"title": "실습 리소스 정리",
+	"tags": [],
+	"description": "",
+	"content": " 이 실습을 마치면 사용한 AWS 계정에 비용이 추가로 발생하지 않도록 사용한 리소스를 삭제해야 합니다. 리소스를 삭제하기 위해 기존의 Administrator (관리자) 계정으로 AWS 관리 콘솔에 로그인 합니다.\n   AWS CloudFormation을 사용하여 생성한 모든 AWS 리소스를 정리합니다. 사전에 CloudFormation에서 만든 리소스에서 변경 사항이 있는 것들을 삭제합니다.\n IAM에 생성된 lf-bank-analyst 유저에 추가한 두 개의 정책(AmazonRedsfhitReadOnlyAccess, AmazonRedshiftQueryEditor)을 우측 X 버튼을 클릭하여 모두 연결 해제 합니다.  S3 버킷안에 생성된 객체를 일괄 삭제합니다.     CloudFormation의 Lake-Formation-Workshop 스택을 선택하고 Delete 버튼을 클릭하여 Stack을 삭제합니다.   Redshift 콘솔을 열고 생성한 Redshift 클러스터를 선택하고, Action에서 Delete 버튼을 클릭하여 삭제 합니다.   "
+},
+{
+	"uri": "/ko/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/ko/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/ko/credits/",
+	"title": "크레딧",
+	"tags": [],
+	"description": "",
+	"content": "패키지와 라이브러리  mermaid - generation of diagram and flowchart from text in a similar manner as markdown font awesome - the iconic font and CSS framework jQuery - The Write Less, Do More, JavaScript Library lunr - Lunr enables you to provide a great search experience without the need for external, server-side, search services\u0026hellip; horsey - Progressive and customizable autocomplete component clipboard.js - copy text to clipboard highlight.js - Javascript syntax highlighter modernizr - A JavaScript toolkit that allows web developers to use new CSS3 and HTML5 features while maintaining a fine level of control over browsers that don\u0026rsquo;t support  도구  Netlify - Continuous deployement and hosting of this documentation Hugo   제작: Daniel You\n"
+}]

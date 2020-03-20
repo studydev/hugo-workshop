@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/ko/tip/contributions/</loc>
+    <lastmod>2020-03-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tip/contributions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/tip/contributions/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/tip/</loc>
+    <lastmod>2020-03-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tip/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/tip/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/tip/vscode/</loc>
+    <lastmod>2020-03-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tip/vscode/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/tip/vscode/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/tip/hugo/</loc>
+    <lastmod>2020-03-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tip/hugo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/tip/hugo/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/tip/image/</loc>
+    <lastmod>2020-03-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tip/image/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/tip/image/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/tip/aws/</loc>
+    <lastmod>2020-03-20T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tip/aws/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/tip/aws/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/tip/ga/</loc>
+    <lastmod>2020-03-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tip/ga/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/tip/ga/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/</loc>
+    <lastmod>2020-03-05T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/introduction/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/introduction/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/introduction/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/introduction/datalake/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/introduction/lakeformation/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/setup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/setup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/setup/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/lab-setup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/lab-setup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/lab-setup/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/build-datalake/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/build-datalake/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/build-datalake/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/build-datalake/admin/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/build-datalake/database/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/build-datalake/storage/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/build-datalake/blueprint/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/build-datalake/verify/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/build-datalake/datamart/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/build-datalake/security/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/analytic/athena/bank-analyst/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/analytic/athena/credit-card-analyst/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/analytic/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/analytic/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/analytic/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/analytic/athena/supervisor/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/analytic/athena/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/analytic/redshift/create-cluster-iam/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/analytic/redshift/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/analytic/redshift/create-cluster/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/analytic/redshift/lake-formation-catalog/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/analytic/redshift/spectrum-query/</loc>
+  </url>
+  
+  <url>
+    <loc>/ko/cleanup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/cleanup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/cleanup/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/ko/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>/ko/credits/</loc>
+  </url>
+  
+</urlset>

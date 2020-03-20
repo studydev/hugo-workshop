@@ -19,7 +19,9 @@ weight: -20
 ![Route53](/images/aws/route53.png)
 
 ## 배포
-Hugo CLI로 진행하거나, 컴파일된 public 폴더 안에 있는 컨텐츠를 업로드 함.
+Hugo CLI나 AWS CLI로 진행하거나, 컴파일된 public 폴더 안에 있는 컨텐츠를 업로드 함.
+`hugo deploy --target=s3`
+`aws s3 sync ./public s3://hugo.awsdemo.kr --acl public-read`
 
 ## CICD
-다양한 방법들... 고민중.
+간단한 방법들

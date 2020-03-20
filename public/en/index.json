@@ -1,0 +1,113 @@
+[
+{
+	"uri": "/en/",
+	"title": "AWS Data Lake Workshop",
+	"tags": [],
+	"description": "",
+	"content": "AWS Data Lake Workshop 본 워크샵은 AWS Lake Formation을 이용하여 데이터 분석 파이프라인을 구축 및 학습하는 것이 목적입니다.\n AWS Lake Formation은 내부적으로 AWS Glue 서비스 기반으로\n다양한 AWS 분석 서비스들과 결합하여 데이터 레이크를 손쉽게 구축 할 수 있습니다.\n"
+},
+{
+	"uri": "/en/tip/",
+	"title": "AWS Data Lake Workshop",
+	"tags": [],
+	"description": "",
+	"content": "AWS Data Lake Workshop 본 워크샵은 AWS Lake Formation을 이용하여 데이터 분석 파이프라인을 구축 및 학습하는 것이 목적입니다.\n AWS Lake Formation은 내부적으로 AWS Glue 서비스 기반으로\n다양한 AWS 분석 서비스들과 결합하여 데이터 레이크를 손쉽게 구축 할 수 있습니다.\n"
+},
+{
+	"uri": "/en/tip/aws/",
+	"title": "AWS Data Lake Workshop",
+	"tags": [],
+	"description": "",
+	"content": "AWS Data Lake Workshop 본 워크샵은 AWS Lake Formation을 이용하여 데이터 분석 파이프라인을 구축 및 학습하는 것이 목적입니다.\n AWS Lake Formation은 내부적으로 AWS Glue 서비스 기반으로\n다양한 AWS 분석 서비스들과 결합하여 데이터 레이크를 손쉽게 구축 할 수 있습니다.\n"
+},
+{
+	"uri": "/en/tip/contributions/",
+	"title": "AWS Data Lake Workshop",
+	"tags": [],
+	"description": "",
+	"content": "AWS Data Lake Workshop 본 워크샵은 AWS Lake Formation을 이용하여 데이터 분석 파이프라인을 구축 및 학습하는 것이 목적입니다.\n AWS Lake Formation은 내부적으로 AWS Glue 서비스 기반으로\n다양한 AWS 분석 서비스들과 결합하여 데이터 레이크를 손쉽게 구축 할 수 있습니다.\n"
+},
+{
+	"uri": "/en/tip/hugo/",
+	"title": "AWS Data Lake Workshop",
+	"tags": [],
+	"description": "",
+	"content": "AWS Data Lake Workshop 본 워크샵은 AWS Lake Formation을 이용하여 데이터 분석 파이프라인을 구축 및 학습하는 것이 목적입니다.\n AWS Lake Formation은 내부적으로 AWS Glue 서비스 기반으로\n다양한 AWS 분석 서비스들과 결합하여 데이터 레이크를 손쉽게 구축 할 수 있습니다.\n"
+},
+{
+	"uri": "/en/tip/image/",
+	"title": "AWS Data Lake Workshop",
+	"tags": [],
+	"description": "",
+	"content": "AWS Data Lake Workshop 본 워크샵은 AWS Lake Formation을 이용하여 데이터 분석 파이프라인을 구축 및 학습하는 것이 목적입니다.\n AWS Lake Formation은 내부적으로 AWS Glue 서비스 기반으로\n다양한 AWS 분석 서비스들과 결합하여 데이터 레이크를 손쉽게 구축 할 수 있습니다.\n"
+},
+{
+	"uri": "/en/tip/vscode/",
+	"title": "AWS Data Lake Workshop",
+	"tags": [],
+	"description": "",
+	"content": "AWS Data Lake Workshop 본 워크샵은 AWS Lake Formation을 이용하여 데이터 분석 파이프라인을 구축 및 학습하는 것이 목적입니다.\n AWS Lake Formation은 내부적으로 AWS Glue 서비스 기반으로\n다양한 AWS 분석 서비스들과 결합하여 데이터 레이크를 손쉽게 구축 할 수 있습니다.\n"
+},
+{
+	"uri": "/en/tip/ga/",
+	"title": "Google Analytics",
+	"tags": [],
+	"description": "",
+	"content": "GA 설정하는 방법 GA는 추적 ID 한개만 넣으면 통계를 파악할 수 있습니다.\n GA 추적 ID를 받는 방법 다음과 같이 추적 ID를 만들고 해당 ID를 config.toml 파일의 키와 교체합니다. Hugo에 GA를 연결한 실시간 컨텐츠 소비 측정 (워크샵이 진행중일 때, 실시간으로 몇 명이 하고 어디까지 왔는지를 알 수 있습니다.) GA를 연결한 컨텐츠 소비 측정 (컨텐츠의 활용 로그를 수집할 수 있습니다.) "
+},
+{
+	"uri": "/en/introduction/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": " 만약 Data Lake와 Lake Formation에 대한 개념을 알고 있다면, 2단계(실습 환경 소개) 로 넘어가세요.\n  1-1. Data Lake  1-2. AWS Lake Formation   "
+},
+{
+	"uri": "/en/setup/",
+	"title": "Setup",
+	"tags": [],
+	"description": "",
+	"content": " 본 실습을 시작하기 전에 필요한 AWS 리소스를 생성해야 합니다. 실습에 필요한 리소스는 AWS CloudFormation을 사용하여 구성한 다음, Lake Formation 기반의 데이터 레이크를 생성합니다.\n 본 실습은 다음 그림과 같은 데이터 분석 파이프라인을 통해 AWS Lake Formation과 AWS 분석 서비스를 학습하는 것이 목적입니다. AWS Lake Formation은 내부적으로 AWS Glue 서비스의 기능을 기반으로 다양한 AWS 분석 서비스와 결합하여 데이터 레이크를 손쉽게 구축할 수 있습니다. 다양한 Lake Formation 사용 패턴 및 기능을 보여주기 위해 샘플 데이터 세트 및 사용자 그룹을 사용합니다. 데이터베이스 및 테이블 Bank 데이터베이스는 은행이 고객, 직원, 다양한 계좌 및 거래에 대한 정보를 체계적으로 저장할 수 있도록 만들어진 OLTP 데이터베이스 입니다. 실질적으로 은행에서 사용하는 데이터베이스가 아닌 본 실습의 용도를 위해서 설계되었으며 랜덤으로 생성한 가상의 데이터를 제공합니다. 은행은 고객 서비스 및 은행 거래를 개선하기 위해 은행 데이터를 분석하여 의미 있는 보고서를 생성할 수 있습니다. 다음 ER 다이어그램은 뱅킹 거래 및 신용카드 거래와 관련된 테이블의 관계를 나타냅니다. 데이터 레이크 사용자 및 그룹 Lake Formation의 다양한 보안 기능을 시연하기 위해 서로 다른 수준으로 데이터 레이크에 액세스 할 수 있는 몇 개의 테스트 사용자 및 그룹을 사용합니다.\n   사용자 및 역할 설명     If-admin (데이터 레이크 관리자) Lake Formation 구성 요소에 액세스 및 변경 할 수 있는 권한 소유   lf-bank-analyst (뱅킹 거래 분석가) 은행 거래와 관련된 테이블 모두 조회 할 수 있는 권한은 있으나 고객 개인 정보 (예: 이메일, 거주지, 생년월일 등)는 조회 할 수 없는 권한 소유   lf-card-analyst (신용카드 거래 분석가) 신용카드 거래와 관련 된 테이블 모두 조회 할 수 있는 권한은 있으나 고객 개인 정보 (예: 이메일, 거주지, 생년월일 등)는 조회 할 수 없는 권한 소유   lf-supervisor (매니저) 은행의 모든 테이블 및 고객 개인 정보를 조회 할 수 있는 권한 소유    "
+},
+{
+	"uri": "/en/lab-setup/",
+	"title": "Lab setup",
+	"tags": [],
+	"description": "",
+	"content": "AWS 계정  이미 AWS 계정을 가지고 있다면 즉시 이 실습의 가이드를 따라 진행할 수 있으나, 계정이 없다면 먼저 AWS 계정을 만들어야 합니다.\n AWS 계정 생성 및 활성화 가이드는 다음 링크 를 참조하시기 바랍니다.\n실습은 us-east-1 (버지니아 북부) 리전을 선택합니다. 해당 실습은 다른 AWS 리전에서는 작동하지 않습니다.\n본 실습 시작 전, 실습에 필요한 리소스는 AWS CloudFormation을 사용하여 구성한 다음, Lake Formation 기반의 데이터 레이크를 생성합니다.\n IAM 사용자 AWS 계정을 생성했지만 직접 IAM 사용자를 생성하지 않은 경우, IAM 콘솔을 사용하여 IAM 사용자를 생성 할 수 있습니다. 다음 스텝에 따라 Administrator (관리자) 사용자를 생성합니다. 이미 관리자 사용자가 있다면, 다음 IAM 사용자 생성 작업을 건너 뜁니다.\n AWS 계정 이메일 주소와 비밀번호를 사용하여 AWS 계정의 Root 사용자로 IAM 콘솔 에 로그인 합니다. IAM 콘솔 왼쪽 메뉴 패널에서 Users (사용자)를 선택한 다음 Add user (사용자 추가)를 클릭합니다. User name (사용자 이름)은 Administrator로 입력합니다. AWS Management Console access 체크박스를 선택하고, Custom password를 선택한 다음 비빌번호를 입력합니다. Next: Permissions (다음: 권한)을 클릭합니다.  Attach existing policies directly (기존 정책 직접 연결)를 선택하고 AdministratorAccess 정책에 체크박스를 선택하고 Next: Tags (다음: 태그)를 클릭합니다.  Next: Review (다음: 검토)를 클릭합니다. Administrator 사용자에 AdministratorAccess 관리형 정책이 추가 된 것을 확인하고 Create user (사용자 만들기)를 클릭합니다. 이제 Root 사용자를 로그아웃하고 새로 생성한 Administrator 사용자로 로그인을 합니다. 다음 URL을 사용하여 로그인 할 수 있습니다.   https://\u0026lt;your_aws_account_id\u0026gt;.signin.aws.amazon.com/console/\n\u0026lt;your_aws_account_id\u0026gt;는 본인 AWS 계정의 고유 ID를 입력합니다. Root 사용자로는 해당 실습을 진행할 때 에러가 발생할 수 있습니다. 반드시 admin 유저 계정으로 로그인하여 진행하세요.\n  EC2 Key Pair CloudFormaton template을 사용하여 실습에 필요한 기본 환경을 구성하려면 Amazon EC2 키 페어를 제공해야 합니다. 이미 EC2 키 페어가 있는 경우 다음 작업을 건너 뜁니다.\n Administrator 사용자로 AWS 콘솔에 로그인 한 다음 EC2 콘솔 로 이동합니다. 탐색 창의 Network \u0026amp; Security (네트워크 \u0026amp; 보안)에서 Key Pairs (키 페어)를 선택합니다. Create Key Pair (키 페어 생성)를 클릭합니다. Key pair name (키 페어 이름)에 새 key pair의 이름을 입력 한 다음 Create (생성)을 클릭합니다. .PEM 파일 형식의 Private Key (개인 키) 파일은 브라우저에서 자동으로 다운로드 됩니다. 개인 키는 다음 CloudFormation을 사용할 때 필요합니다.  CloudFormation Template AWS Lake Formation 실습에 필요한 AWS 리소스를 사전에 생성하기 위해 제공된CloudFormation template을 사용하여 CloudFormation stack을 생성합니다. 스택을 생성하면 Amazon RDS에서 실행되는 샘플 bank 데이터베이스, 다양한 보안 패턴을 테스트하기 위한 샘플 사용자, 데이터베이스에 연결하기 위한 Glue connection 및 기타 IAM 리소스가 생성 됩니다. 이 모든 리소스는 AWS에서 안전한 데이터 레이크를 구축하는 데 필요합니다.\nCloudFormation 스택을 시작하려면, Launch Stack 버튼 를 클릭해서 CloudFormation 콘솔로 이동합니다.\n중요: 이 탬플릿은 us-east-1 (버지니아 북부)을 위해 만들어졌으며 다른 AWS 리전에서는 작동하지 않습니다.\n  Launch Stack  스택 생성 단계에서 스택 이름을 입력하고 앞서 생성한 EC2 키 페어를 선택합니다. 그리고 나머지는 기본 값을 유지하고 마지막 단계에서 CloudFormation이 IAM 리소스를 생성할 때 커스텀 이름을 사용할 수 있게 Acknowledge 체크박스를 선택하고 Create stack (스택 생성)을 클릭합니다. CloudFormation 스택을 완료하는 데 약 5분 정도 소요됩니다. CloudFormation 콘솔을 확인하고 아래와 같이 CREATE_COMPLETE 상태를 기다립니다. 스택 생성이 완료되면 AWS 계정에 실습을 실행하는 데 필요한 모든 기본 리소스가 준비 되어있습니다. Outputs 탭에서 Amazon S3의 버킷 이름, 비밀번호 및 Athena 쿼리 결과를 저장할 S3 위치가 표시됩니다. 해당 정보는 본 실습을 진행할 때 사용되기 때문에 복사해 둡니다.\n "
+},
+{
+	"uri": "/en/build-datalake/",
+	"title": "Build up Data Lake",
+	"tags": [],
+	"description": "",
+	"content": " 이번 실습에서는 Lake Formation의 기본 기능과 서로 다른 구성 요소들을 결합하여 AWS에서 데이터 레이크를 생성하는 방법, 엑세스를 제공하기 위해 다양한 보안 정책을 구성하는 방법 등을 설명하기 위해 다음 단계를 수행합니다.\n  4-1. 관리자 설정  4-2. 데이터베이스 생성  4-3. S3 스토리지 설정  4-4. 데이터 수집을 위한 Blueprint 설정  4-5. 데이터 검증  4-6. 데이터 마트 생성  4-7. 데이터 보안 설정   "
+},
+{
+	"uri": "/en/analytic/",
+	"title": "Analytics on Data Lake",
+	"tags": [],
+	"description": "",
+	"content": " 본 실습은 Amazon Athena와 Amazon Redshift를 이용해서 Data Lake에 저장된 데이터를 분석할 수 있습니다.\n  5-1. Athena를 이용한 분석  5-2. Redshift를 이용한 분석   "
+},
+{
+	"uri": "/en/cleanup/",
+	"title": "Clean Up",
+	"tags": [],
+	"description": "",
+	"content": " 이 실습을 마치면 사용한 AWS 계정에 비용이 추가로 발생하지 않도록 사용한 리소스를 삭제해야 합니다. 리소스를 삭제하기 위해 기존의 Administrator (관리자) 계정으로 AWS 관리 콘솔에 로그인 합니다.\n   AWS CloudFormation을 사용하여 생성한 모든 AWS 리소스를 정리합니다. 사전에 CloudFormation에서 만든 리소스에서 변경 사항이 있는 것들을 삭제합니다.\n IAM에 생성된 lf-bank-analyst 유저에 추가한 두 개의 정책(AmazonRedsfhitReadOnlyAccess, AmazonRedshiftQueryEditor)을 우측 X 버튼을 클릭하여 모두 연결 해제 합니다.  S3 버킷안에 생성된 객체를 일괄 삭제합니다.     CloudFormation의 Lake-Formation-Workshop 스택을 선택하고 Delete 버튼을 클릭하여 Stack을 삭제합니다.   Redshift 콘솔을 열고 생성한 Redshift 클러스터를 선택하고, Action에서 Delete 버튼을 클릭하여 삭제 합니다.   "
+},
+{
+	"uri": "/en/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/en/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
