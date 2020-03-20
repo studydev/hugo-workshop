@@ -2,7 +2,7 @@
 
 ## 사전 설치
 1. HUGO 환경 [설치 방법](https://gohugo.io/getting-started/quick-start/)  
-    - Hugo 설치
+    - HUGO 설치
     ```sh
     brew install hugo
     ```
@@ -49,14 +49,14 @@
     other = "펼치기..."
     ```
 
-1. Hugo Template 설정
+1. HUGO Template 설정
     - config.toml 파일 열어서 아래 내용 수정
     ```toml
         # 제작작 변경
         author = "Hyounsoo Kim"
 
     # 제목 변경
-    title = "Hugo 템플릿 활용하기"
+    title = "HUGO 템플릿 활용하기"
 
     # Google Analytics 추적 ID를 발급 받아서 아래 변경
     googleAnalytics = "UA-160433107-1"
@@ -94,17 +94,21 @@
         URL = "s3://hugo.awsdemo.kr?region=ap-northeast-2"
     ```
 
-## Hugo 로컬 테스트
-1. Hugo 서버 올리기 (port는 1313이며 -p 옵션으로 변경 가능)
+## HUGO 로컬 테스트
+1. HUGO 서버 올리기 (port는 1313이며 -p 옵션으로 변경 가능)
 ```sh
 hugo server -D
 ```
-2. Hugo 서버 컴파일 하기
+1. HUGO 테스트
+```sh
+http://localhost:1313/
+```
+1. HUGO 서버 컴파일 하기
 ```sh
 hugo -d public
 ```
 
-## Hugo 배포
+## HUGO 배포
 public 폴더를 S3에 배포한다. (사전에 AWS CLI가 설치되어 있고 설정이 되어 있어야 합니다.)
 ```sh
 hugo deploy --target=s3
