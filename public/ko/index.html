@@ -12,20 +12,20 @@
     <title>워크샵 잘 만들어보기 :: Hugo 템플릿 활용하기</title>
 
     
-    <link href="/css/nucleus.css?1584937863" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1584937863" rel="stylesheet">
-    <link href="/css/hybrid.css?1584937863" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1584937863" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1584937863" rel="stylesheet">
-    <link href="/css/auto-complete.css?1584937863" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1584937863" rel="stylesheet">
-    <link href="/css/theme.css?1584937863" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1584937863" rel="stylesheet">
+    <link href="/css/nucleus.css?1584941427" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1584941427" rel="stylesheet">
+    <link href="/css/hybrid.css?1584941427" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1584941427" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1584941427" rel="stylesheet">
+    <link href="/css/auto-complete.css?1584941427" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1584941427" rel="stylesheet">
+    <link href="/css/theme.css?1584941427" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1584941427" rel="stylesheet">
     
-      <link href="/css/theme-aws.css?1584937863" rel="stylesheet">
+      <link href="/css/theme-aws.css?1584941427" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1584937863"></script>
+    <script src="/js/jquery-3.3.1.min.js?1584941427"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1584937863"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1584937863"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1584941427"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1584941427"></script>
 <script type="text/javascript">
     
         var baseurl = "\/ko";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1584937863"></script>
+<script type="text/javascript" src="/js/search.js?1584941427"></script>
 
     
   </div>
@@ -955,6 +955,10 @@
                   <a class="padding" href="https://www.facebook.com/groups/awskrug/"><i class='fab fa-facebook-square'></i> Facebook</a>
               </li>
           
+              <li> 
+                  <a class="padding" href="https://github.com/studydev/hugo-workshop"><i class='fab fa-github'></i> Github</a>
+              </li>
+          
         </ul>
       </section>
     
@@ -1046,7 +1050,9 @@
  
 <h1 id="hugo-workshop-템플릿-설명">hugo-workshop 템플릿 설명</h1>
 
-<div class="notices note" ><p>본 자료는 Workshop들을 돌아다니면서 코드를 정리한 Hugo Template입니다.</p>
+<div class="notices note" ><p>본 자료는 Workshop들을 돌아다니면서 코드를 정리한 Hugo Template입니다.<br>
+<a href="https://github.com/studydev/hugo-workshop" target="_blank">Github 소스코드</a>
+를 다운로드 받아서 실습해 볼 수 있습니다.</p>
 </div>
 
 <h2 id="사전-설치">사전 설치</h2>
@@ -1102,42 +1108,12 @@ git submodule update
 <li>
 <p>HUGO Template 설정</p>
 <ul>
-<li>config.toml 파일 열어서 아래 내용 수정</li>
+<li>config.toml 파일 열어서 아래 내용 수정, Google Analytics, 저자, 제목, 배포옵션(배포 옵션은 HUGO 대신 AWS CLI나 CICD 배포 파이프라인을 만들면 됩니다.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">    <span style="color:#75715e"># 제작작 변경</span>
-    <span style="color:#a6e22e">author</span> = <span style="color:#e6db74">&#34;Hyounsoo Kim&#34;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">    <span style="color:#a6e22e">author</span> = <span style="color:#e6db74">&#34;Hyounsoo Kim&#34;</span>
 
-<span style="color:#75715e"># 제목 변경</span>
 <span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;HUGO 템플릿 활용하기&#34;</span>
-
-<span style="color:#75715e"># Google Analytics 추적 ID를 발급 받아서 아래 변경</span>
 <span style="color:#a6e22e">googleAnalytics</span> = <span style="color:#e6db74">&#34;UA-160433107-1&#34;</span>
-
-<span style="color:#75715e"># 관련된 바로가기 링크들을 수정</span>
-[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">shortcuts</span>]] 
-<span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;&lt;i class=&#39;fab fa-aws&#39;&gt;&lt;/i&gt; AWS Homepage&#34;</span>
-<span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;https://aws.amazon.com/&#34;</span>
-<span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">1000</span>
-
-[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">shortcuts</span>]]
-<span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;&lt;i class=&#39;fas fa-blog&#39;&gt;&lt;/i&gt; AWS Blog&#34;</span>
-<span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;https://aws.amazon.com/blogs/aws/&#34;</span>
-<span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">1020</span>
-
-[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">shortcuts</span>]]
-<span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;&lt;i class=&#39;fab fa-facebook-square&#39;&gt;&lt;/i&gt; Facebook&#34;</span>
-<span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;https://www.facebook.com/groups/awskrug/&#34;</span>
-<span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">1030</span>
-
-<span style="color:#75715e"># 언어 설정을 추가함</span>
-[<span style="color:#a6e22e">Languages</span>]
-[<span style="color:#a6e22e">Languages</span>.<span style="color:#a6e22e">ko</span>]
-<span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">1</span>
-<span style="color:#a6e22e">languageName</span> = <span style="color:#e6db74">&#34;한국어&#34;</span>
-
-[<span style="color:#a6e22e">Languages</span>.<span style="color:#a6e22e">en</span>]
-<span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">2</span>
-<span style="color:#a6e22e">languageName</span> = <span style="color:#e6db74">&#34;English&#34;</span>
 
 <span style="color:#75715e"># 배포 옵션 정의, public 폴더에 컴파일 된 정적 컨테츠를 S3에 업로드 가능</span>
 [<span style="color:#a6e22e">deployment</span>]
@@ -1721,19 +1697,19 @@ git submodule update
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1584937863"></script>
-    <script src="/js/perfect-scrollbar.min.js?1584937863"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1584937863"></script>
-    <script src="/js/jquery.sticky.js?1584937863"></script>
-    <script src="/js/featherlight.min.js?1584937863"></script>
-    <script src="/js/highlight.pack.js?1584937863"></script>
+    <script src="/js/clipboard.min.js?1584941427"></script>
+    <script src="/js/perfect-scrollbar.min.js?1584941427"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1584941427"></script>
+    <script src="/js/jquery.sticky.js?1584941427"></script>
+    <script src="/js/featherlight.min.js?1584941427"></script>
+    <script src="/js/highlight.pack.js?1584941427"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1584937863"></script>
-    <script src="/js/learn.js?1584937863"></script>
-    <script src="/js/hugo-learn.js?1584937863"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1584941427"></script>
+    <script src="/js/learn.js?1584941427"></script>
+    <script src="/js/hugo-learn.js?1584941427"></script>
 
-    <link href="/mermaid/mermaid.css?1584937863" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1584937863"></script>
+    <link href="/mermaid/mermaid.css?1584941427" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1584941427"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -50,42 +50,12 @@
     ```
 
 1. HUGO Template 설정
-    - config.toml 파일 열어서 아래 내용 수정
+    - config.toml 파일 열어서 아래 내용 수정, Google Analytics, 저자, 제목, 배포 옵션(배포 옵션은 HUGO 대신 AWS CLI나 CICD 배포 파이프라인을 만들면 됩니다.
     ```toml
-        # 제작작 변경
         author = "Hyounsoo Kim"
 
-    # 제목 변경
     title = "HUGO 템플릿 활용하기"
-
-    # Google Analytics 추적 ID를 발급 받아서 아래 변경
     googleAnalytics = "UA-160433107-1"
-
-    # 관련된 바로가기 링크들을 수정
-    [[menu.shortcuts]] 
-    name = "<i class='fab fa-aws'></i> AWS Homepage"
-    url = "https://aws.amazon.com/"
-    weight = 1000
-
-    [[menu.shortcuts]]
-    name = "<i class='fas fa-blog'></i> AWS Blog"
-    url = "https://aws.amazon.com/blogs/aws/"
-    weight = 1020
-
-    [[menu.shortcuts]]
-    name = "<i class='fab fa-facebook-square'></i> Facebook"
-    url = "https://www.facebook.com/groups/awskrug/"
-    weight = 1030
-
-    # 언어 설정을 추가함
-    [Languages]
-    [Languages.ko]
-    weight = 1
-    languageName = "한국어"
-
-    [Languages.en]
-    weight = 2
-    languageName = "English"
 
     # 배포 옵션 정의, public 폴더에 컴파일 된 정적 컨테츠를 S3에 업로드 가능
     [deployment]
