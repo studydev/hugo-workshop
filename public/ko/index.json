@@ -39,7 +39,7 @@
 	"title": "AWS 설정",
 	"tags": [],
 	"description": "",
-	"content": "S3 환경 만들기 S3 버킷 만들기 정적 웹 호스팅 설정하기  에러 페이지는 404.html 파일로 가도록 설정합니다. (에러 나더라도 문제 없도록, 또는 index.html로 리다이렉트 하게 하거나)\n Route53 설정 서브 도메인 설정 배포 Hugo CLI로 진행하거나, 컴파일된 public 폴더 안에 있는 컨텐츠를 업로드 함.\nCICD 다양한 방법들\u0026hellip; 고민중.\n"
+	"content": "S3 환경 만들기 S3 버킷 만들기 정적 웹 호스팅 설정하기  에러 페이지는 404.html 파일로 가도록 설정합니다. (에러 나더라도 문제 없도록, 또는 index.html로 리다이렉트 하게 하거나)\n Route53 설정 서브 도메인 설정 배포 Hugo CLI나 AWS CLI로 진행하거나, 컴파일된 public 폴더 안에 있는 컨텐츠를 업로드 함. hugo deploy --target=s3 aws s3 sync ./public s3://hugo.awsdemo.kr --acl public-read\nCICD 간단한 방법들\n저는 여기 홈페이지로  가고 싶어요.\nhttp://hugo.awsdemo.kr/ko/\n"
 },
 {
 	"uri": "/ko/tip/ga/",

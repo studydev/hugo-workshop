@@ -1,4 +1,5 @@
-# 변경 불필요
+title = "Hugo 템플릿 활용하기"
+googleAnalytics = "UA-161422664-1"
 anguageCode = "ko-KR"
 defaultContentLanguage = "ko"
 theme = "hugo-theme-learn"
@@ -11,41 +12,36 @@ defaultContentLanguageInSubdir= true
 home = [ "HTML", "RSS", "JSON"]
 
 [params]
-showVisitedLinks = false
-disableBreadcrumb = false
-disableNextPrev = false
-themeVariant = "aws"
-disableInlineCopyToClipBoard = false
-# 변경 필요
-author = "Hyounsoo Kim"
-
-# 변경 필요
-title = "Hugo 템플릿 활용하기"
-googleAnalytics = "UA-161422664-1"
+  showVisitedLinks = false
+  disableBreadcrumb = false
+  disableNextPrev = false
+  themeVariant = "aws"
+  disableInlineCopyToClipBoard = false
+  author = "Hyounsoo Kim"
 
 [[menu.shortcuts]] 
-name = "<i class='fab fa-aws'></i> AWS Homepage"
-url = "https://aws.amazon.com/"
-weight = 1000
+  name = "<i class='fab fa-aws'></i> AWS Homepage"
+  url = "https://aws.amazon.com/"
+  weight = 1000
 
 [[menu.shortcuts]]
-name = "<i class='fas fa-blog'></i> AWS Blog"
-url = "https://aws.amazon.com/blogs/aws/"
-weight = 1020
+  name = "<i class='fas fa-blog'></i> AWS Blog"
+  url = "https://aws.amazon.com/blogs/aws/"
+  weight = 1020
 
 [[menu.shortcuts]]
-name = "<i class='fab fa-facebook-square'></i> Facebook"
-url = "https://www.facebook.com/groups/awskrug/"
-weight = 1030
+  name = "<i class='fab fa-facebook-square'></i> Facebook"
+  url = "https://www.facebook.com/groups/awskrug/"
+  weight = 1030
 
 [Languages]
   [Languages.ko]
-  weight = 1
-  languageName = "한국어"
+    weight = 1
+    languageName = "한국어"
 
-[Languages.en]
-  weight = 2
-  languageName = "English"
+  [Languages.en]
+    weight = 2
+    languageName = "English"
 
 [deployment]
   [[deployment.targets]]

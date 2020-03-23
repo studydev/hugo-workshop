@@ -24,4 +24,8 @@ Hugo CLI나 AWS CLI로 진행하거나, 컴파일된 public 폴더 안에 있는
 `aws s3 sync ./public s3://hugo.awsdemo.kr --acl public-read`
 
 ## CICD
-간단한 방법들
+**간단한 방법들**
+
+저는 여기 [홈페이지로 ](http://hugo.awsdemo.kr/ko/)가고 싶어요.
+
+http://hugo.awsdemo.kr/ko/
