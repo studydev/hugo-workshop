@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.67.1" />
+    <meta name="description" content="">
+<meta name="author" content="Hyounsoo Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>오토 스케일링 웹 서비스 배포 :: Hugo 템플릿 활용하기</title>
+
+    
+    <link href="/css/nucleus.css?1593641840" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1593641840" rel="stylesheet">
+    <link href="/css/hybrid.css?1593641840" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1593641840" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1593641840" rel="stylesheet">
+    <link href="/css/auto-complete.css?1593641840" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1593641840" rel="stylesheet">
+    <link href="/css/theme.css?1593641840" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1593641840" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1593641840" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1593641840"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/ko/compute/auto_scaling/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/" style="margin:auto;width:60%;padding:10px;">
+	<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="검색...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1593641840"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1593641840"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/ko";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1593641840"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/prerequisites/" title="개요 및 사전 준비사항" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/prerequisites/">
+          <b>0. </b>개요 및 사전 준비사항
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/network/" title="네트워크 – Amazon VPC" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/network/">
+          <b>1. </b>네트워크 – Amazon VPC
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/network/create_vpc/" title="VPC 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/network/create_vpc/">
+          <b>1-1. </b>VPC 생성
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/network/create_subnet/" title="VPC에서 추가 서브넷 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/network/create_subnet/">
+          <b>1-2. </b>VPC에서 추가 서브넷 생성
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/compute/" title="컴퓨트 – Amazon EC2" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/ko/compute/">
+          <b>2. </b>컴퓨트 – Amazon EC2
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/compute/launching/" title="웹 서버 인스턴스의 시작" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/compute/launching/">
+          <b>2-1. </b>웹 서버 인스턴스의 시작
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/compute/auto_scaling/" title="오토 스케일링 웹 서비스 배포" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/ko/compute/auto_scaling/">
+          <b>2-2. </b>오토 스케일링 웹 서비스 배포
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/compute/test_service/" title="웹 서비스 확인 및 테스트" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/compute/test_service/">
+          <b>2-3. </b>웹 서비스 확인 및 테스트
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/compute/appendix/" title="부록 - 추가적인 EC2 개념들" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/compute/appendix/">
+          <b>2-4. </b>부록 - 추가적인 EC2 개념들
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/" title="데이터베이스 – Amazon Aurora" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/">
+          <b>3. </b>데이터베이스 – Amazon Aurora
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/create_sg/" title="VPC 보안 그룹 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/create_sg/">
+          <b>3-1. </b>VPC 보안 그룹 생성
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/create_rds/" title="RDS 인스턴스 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/create_rds/">
+          <b>3-2. </b>RDS 인스턴스 생성
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/connect_app/" title="웹앱 서버와 RDS 연결" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/connect_app/">
+          <b>3-3. </b>웹앱 서버와 RDS 연결
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/update_asg/" title="오토 스케일링 그룹 업데이트" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/update_asg/">
+          <b>3-4. </b>오토 스케일링 그룹 업데이트
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/manage_rds/" title="RDS 관리 기능" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/manage_rds/">
+          <b>3-5. </b>RDS 관리 기능
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/challenge_aurora/" title="도전 과제 - RDS Aurora 연결" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/challenge_aurora/">
+          <b>3-6. </b>도전 과제 - RDS Aurora 연결
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/" title="스토리지 – Amazon S3" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/">
+          <b>4. </b>스토리지 – Amazon S3
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/create_bucket/" title="S3 내 Bucket 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/create_bucket/">
+          <b>4-1. </b>S3 내 Bucket 생성
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/put_object/" title="버킷에 오브젝트 추가하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/put_object/">
+          <b>4-2. </b>버킷에 오브젝트 추가하기
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/view_object/" title="오브젝트 보기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/view_object/">
+          <b>4-3. </b>오브젝트 보기
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/static_web_hosting/" title="정적 웹 사이트 호스팅 사용" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/static_web_hosting/">
+          <b>4-4. </b>정적 웹 사이트 호스팅 사용
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/move_object/" title="오브젝트 이동" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/move_object/">
+          <b>4-5. </b>오브젝트 이동
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/enable_versioning/" title="버킷 버저닝 활성화" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/enable_versioning/">
+          <b>4-6. </b>버킷 버저닝 활성화
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/delete_bucket/" title="오브젝트 및 버킷 삭제" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/delete_bucket/">
+          <b>4-7. </b>오브젝트 및 버킷 삭제
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/cleanup/" title="실습 리소스 정리" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/cleanup/">
+          <b>5. </b>실습 리소스 정리
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/"><i class='fab fa-aws'></i> AWS Homepage</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/blogs/aws/"><i class='fas fa-blog'></i> AWS Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awskrug/"><i class='fab fa-facebook-square'></i> Facebook</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://github.com/studydev/hugo-workshop"><i class='fab fa-github'></i> Github</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="ko" value="/ko/compute/auto_scaling/" selected>한국어</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    <section class="copyright">&copy; 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.<section>
+</left>
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/ko/'>AWS General Immersion Day</a> > <a href='/ko/compute/'>컴퓨트 – Amazon EC2</a> > 오토 스케일링 웹 서비스 배포
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#application-load-balancer-구성">Application Load Balancer 구성</a>
+      <ul>
+        <li><a href="#alb-생성">ALB 생성</a></li>
+      </ul>
+    </li>
+    <li><a href="#시작-템플릿-구성">시작 템플릿 구성</a>
+      <ul>
+        <li><a href="#보안-그룹-생성">보안 그룹 생성</a></li>
+        <li><a href="#시작-템플릭-생성">시작 템플릭 생성</a></li>
+      </ul>
+    </li>
+    <li><a href="#auto-scaling-group-구성">Auto Scaling Group 구성</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              오토 스케일링 웹 서비스 배포
+            </h1>
+          
+
+        
+
+
+
+
+	
+<div class="notices note" ><p>AWS Auto Scaling은 애플리케이션을 모니터링하고 용량을 자동으로 조정하여, 최대한 저렴한 비용으로 안정적이고 예측 가능한 성능을 유지합니다. AWS Auto Scaling을 사용하면 몇 분 만에 손쉽게 여러 서비스 전체에서 여러 리소스에 대해 애플리케이션 규모 조정을 설정할 수 있습니다.</p>
+</div>
+
+<p>이제 앞서 Networking Lab에서 생성한 네트워크 인프라 위에 부하에 따라 자동적으로 Scale out/in 이 가능하고 고가용성이 보장되는 웹 서비스를 배포해 보겠습니다. 여기서는 이전 장에서 만들어 둔 웹 서버 AMI와 VPC Lab에서 구성한 네트워크 인프라를 사용할 예정입니다.</p>
+<h2 id="application-load-balancer-구성">Application Load Balancer 구성</h2>
+<p>AWS Elastic Load Balancing은 Application Load Balancer, Network Load Balancer, Classic Load Balancer의 세 가지 유형의 로드 밸런서를 지원합니다. 본 실습에서는 HTTP 요청을 부하 분산 처리하는 Application Load Balancer를 구성하고 설정하도록 해 보겠습니다.</p>
+<h3 id="alb-생성">ALB 생성</h3>
+<ol>
+<li>
+<p><strong>EC2 관리 콘솔</strong>로 들어갑니다. 좌측 메뉴에서 스크롤을 내려 <strong>Load Balancing</strong> 항목 아래 <strong>Load Balancers</strong> 를 클릭하고, 가운데 위의 <strong>Create Load Balancer</strong> 를 클릭합니다.</p>
+</li>
+<li>
+<p>Select load balancer type 창에서 <strong>Application Load Balancer</strong> 의 <strong>Create</strong> 버튼을 클릭합니다.</p>
+</li>
+<li>
+<p><strong>[Step 1: Configure Load Balancer]</strong> 에서 로드 밸런서의 이름을 정해 줍니다. 여기서는 <strong>Name</strong>에 <code>Web-ALB</code>로 이름을 지정해 줍니다. 다른 설정들은 기본값으로 둡니다. 기본 설정은 인터넷으로부터 80 port로 들어오는 HTTP 연결을 ALB가 Listening 하도록 되어 있습니다.</p>
+</li>
+<li>
+<p>스크롤을 조금 내리면, 가용 영역을 설정하는 란이 나옵니다. 사전에 구성한 <strong>VPC</strong>가 <code>VPC-Lab</code> 으로 선택되어 있는지 확인한 후, 로드 밸런서가 사용할 <strong>Availability Zones</strong> 의 <code>ap-northeast-2a</code>를 선택하고, <code>Public subnet A</code>를 찾아 지정합니다. 마찬가지로 <code>ap-northeast-2c</code>도 선택하고 <code>Public subnet C</code>를 지정해 줍니다. 우측 하단 <strong>Next: Configure Security Settings</strong>을 눌러 다음 단계로 넘어갑니다.</p>
+</li>
+<li>
+<p><strong>[Step 2: Configure Security Settings]</strong> 에서 HTTPS를 사용하는 보안 리스너를 구성하라는 경고 메시지가 나옵니다. 이 실습에서는 편의를 위하여 HTTP 리스너를 사용할 예정입니다. 바로 <strong>Next: Configure Security Groups</strong> 버튼을 눌러 넘어갑니다.</p>
+</li>
+<li>
+<p><strong>[Step 3: Configure Security Groups]</strong> 에서 ALB에 적용될 보안 그룹을 설정합니다. 먼저 <strong>Assign a security group</strong> 란에 <code>Create a new security group</code> 를 선택하고, <strong>Security group name</strong> 에 <code>Web-ALB-SG</code> 를 입력합니다. 그리고 <strong>Type</strong> 드롭다운 메뉴에서 <code>HTTP</code>를 찾아 선택합니다. 완료되었으면 <strong>Next: Configure Routing</strong> 버튼을 눌러 다음 단계로 넘어갑니다.</p>
+</li>
+<li>
+<p><strong>[Step 4: Configure Routing]</strong> 에서 위에서 설정한 리스너가 트래픽을 넘겨줄 대상 그룹을 설정합니다. 현재 우리는 아직 트래픽을 받아 처리해 줄 인스턴스가 없는 상태입니다. 일단 <strong>Name</strong>만 <code>Web-TG</code> 로 만들고 <strong>Next: Register Targets</strong> 버튼을 누르고 다음 단계로 넘어갑니다.</p>
+</li>
+<li>
+<p><strong>[Step 5: Register Targets]</strong> 단계입니다. 하지만 앞서 말씀드린 것처럼 현재 등록할 타겟이 없습니다. <strong>Next: Review</strong> 를 눌러 넘어갑니다.</p>
+</li>
+<li>
+<p><strong>[Step 6: Review]</strong> 에서 현재까지 구성한 설정을 확인해 볼 수 있습니다. 이상이 없는 것을 확인한 후, 오른쪽 아래 <strong>Create</strong> 버튼을 클릭하여 생성 설정을 완료합니다.</p>
+</li>
+<li>
+<p>로드 밸런서 생성이 완료되었습니다. <strong>Close</strong> 를 눌러 생성 화면을 종료합니다.</p>
+</li>
+</ol>
+<h2 id="시작-템플릿-구성">시작 템플릿 구성</h2>
+<p>ALB를 만들었으니 이제 로드 밸런서 뒤에 인스턴스들을 배치할 차례입니다. Auto Scaling Group에서 시작할 Amazon EC2 인스턴스를 구성하려면 <strong>시작 템플릿</strong>, <strong>시작 구성</strong>, 또는 <strong>EC2 인스턴스</strong> 를 사용할 수 있습니다. 여기서는 시작 템플릿을 사용하여 Auto Scaling 그룹을 생성해 보겠습니다.</p>
+<p>시작 템플릿은 한 리소스 내의 모든 시작 파라미터를 한꺼번에 구성하도록 되어 있어 인스턴스 생성에 필요한 단계 수를 줄입니다. 또한 시작 템플릿은 Auto Scaling, 스팟 집합, 스팟 및 온디맨드 인스턴스에 대한 지원을 통해 Best Practice 를 더욱 쉽게 구현할 수 있습니다. 이를 통해 비용을 보다 편리하게 관리하고 보안을 향상시키며, 배포 오류 위험을 최소화하는 데 도움이 됩니다.</p>
+<p>시작 템플릿에는 AMI 및 인스턴스 유형과 같이 Amazon EC2가 인스턴스를 시작하는 데 필요한 정보가 포함되어 있습니다. Auto Scaling 그룹은 이를 참조하여 확장(Scale out) 이벤트가 발생할 때 새로운 인스턴스들을 추가하게 됩니다. 만약 Auto Scaling 그룹에서 시작할 EC2 인스턴스의 구성을 변경해야 한다면, 시작 템플릿의 새 버전을 생성하여 Auto Scaling 그룹에 지정하면 됩니다. 필요에 따라 Auto Scaling 그룹에서 EC2 인스턴스를 시작하는 데 사용하는 시작 템플릿의 특정 버전을 선택할 수도 있습니다. 이 설정은 언제든지 변경할 수 있습니다.</p>
+<h3 id="보안-그룹-생성">보안 그룹 생성</h3>
+<p>시작 템플릿을 만들기 전에, 시작 템플릿을 통해 생성되는 인스턴스들이 사용할 보안 그룹을 만들어 보겠습니다. EC2 콘솔의 좌측 메뉴에서 <strong>Network &amp; Security</strong> 칸의 <strong>Security Groups</strong>를 선택하고, 우측 상단의 <strong>Create Security Group</strong>을 클릭합니다.</p>
+<ol>
+<li>보안 그룹 생성 화면에서 아래 내용들을 채워 넣습니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Security Group Name</td>
+<td><code>ASG-Web-Inst-SG</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td><code>HTTP Allow</code></td>
+</tr>
+<tr>
+<td>VPC</td>
+<td><code>VPC-Lab</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>스크롤을 내려 인바운드 룰을 수정해 줍니다. 먼저 <strong>Add rule</strong> 을 눌러 인바운드 룰 수정 창을 추가하시고, <strong>Type</strong>에는 <code>HTTP</code>를 입력합니다. <strong>Source</strong>로는 검색창에 <code>ALB</code>라고 입력하시면 ALB 생성 시 만든 보안 그룹이 검색됩니다. 이를 클릭하여, ALB에서 들어오는 HTTP 트래픽만 받도록 보안 그룹을 구성해 줍니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>HTTP</td>
+</tr>
+<tr>
+<td>Source</td>
+<td><code>Web-ALB-SG</code> (클릭하고 나면 sg-xxxx 형태로 변경됨)</td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>Outbound rules는 기존 설정 그대로 두고, 오른쪽 아래 <strong>Create Security Group</strong> 버튼을 눌러 보안 그룹을 생성해 줍니다. 이를 통해 인터넷에서 ALB를 통해 인스턴스로 들어오는 HTTP 연결(TCP 80)에 대해서만 트래픽을 허용하는 보안 그룹을 생성하였습니다.</li>
+</ol>
+<h3 id="시작-템플릭-생성">시작 템플릭 생성</h3>
+<ol>
+<li>
+<p>EC2 콘솔에 접속, 좌측 메뉴에서 <strong>Launch Templates</strong>을 찾아 선택하고, <strong>Create Launch Template</strong>을 클릭합니다.</p>
+</li>
+<li>
+<p>시작 템플릿 설정을 하나하나 진행해 보겠습니다. 먼저 Launch template name과 Template version description을 아래와 같이 설정하고, Auto Scaling guidance의 Provide guidance…. 항목의 체크박스를 선택합니다. 이 체크박스를 선택하여 생성하는 템플릿이 Amazon EC2 Auto Scaling에서 활용되도록 설정합니다.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Launch template name</td>
+<td><code>Web</code></td>
+</tr>
+<tr>
+<td>Template version description</td>
+<td><code>Immersion Day Web Instances Template – Web only</code></td>
+</tr>
+<tr>
+<td>Auto Scaling guidance</td>
+<td><strong>Provide guidance to help me set up a template that I can use with EC2 Auto Scaling</strong> <code>체크 박스 클릭</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>아래로 스크롤을 내려 시작 템플릿 콘텐츠를 설정합니다. <strong>Amazon Machine Image(AMI)</strong> 란에는 이전 EC2 Hands-on Lab에서 만든 AMI를 찾아 설정합니다. 검색 창에 <code>Web Server v1</code> 이라고 입력하여 찾으시거나, 스크롤을 내려 내 AMI 란에서 찾으실 수 있습니다. 다음으로 인스턴스 유형에는 <code>t2.micro</code>를 입력하여 선택해 줍니다. 서비스용 웹 서버를 올리는 것이므로 SSH 접근은 하지 않을 예정입니다. 따라서 키 페어는 사용하지 않습니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AMI</td>
+<td><code>Web Server v1</code></td>
+</tr>
+<tr>
+<td>Instance Type</td>
+<td><code>t2.micro</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="4">
+<li>다른 부분들은 기본값으로 두고, Network Settings 부분을 보겠습니다. 먼저 <strong>Networking platform</strong> 란에서 <code>Virtual Private Cloud(VPC)</code>를 선택합니다. 보안 그룹 란에는 검색 창에 <code>ASG-Web-Inst-SG</code>를 입력하여 앞서 만든 보안 그룹을 선택해 주겠습니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Networking platform</td>
+<td><code>Virtual Private Cloud(VPC</code></td>
+</tr>
+<tr>
+<td>Security groups</td>
+<td><code>ASG-Web-Inst-SG</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="5">
+<li>Storage는 별도 설정 없이 기본값을 따르겠습니다. 아래로 내려가 Instance tags를 정의하겠습니다. <strong>Add tag</strong>를 누르고, <strong>Key</strong>에 <code>Name</code>을, <strong>Value</strong>에 <code>Web Instance</code>를 입력해 줍니다. <code>Tag volumes</code>도 클릭하여 선택해 줍니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Key</td>
+<td><code>Virtual Private Cloud(VPC</code></td>
+</tr>
+<tr>
+<td>Value</td>
+<td><code>ASG-Web-Inst-SG</code></td>
+</tr>
+<tr>
+<td>Tag Volumes</td>
+<td><strong>volumes</strong> <code>체크 박스 클릭</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="6">
+<li>
+<p>이외의 다른 설정들은 모두 기본값으로 두고, 우측 하단의 <strong>Create launch template</strong> 버튼을 눌러 시작 템플릿을 생성합니다.</p>
+</li>
+<li>
+<p>다음 단계에서 <strong>View launch template</strong> 를 누르시면 아래와 같이 시작 템플릿이 생성된 것을 확인하실 수 있습니다.</p>
+</li>
+</ol>
+<h2 id="auto-scaling-group-구성">Auto Scaling Group 구성</h2>
+<p>자, 이제 Auto Scaling Group 을 만들어 보겠습니다.</p>
+<ol>
+<li>
+<p>먼저 EC2 콘솔로 들어가 좌측 메뉴 맨 하단의 <strong>Auto Scaling Groups</strong>를 선택합니다. 그리고 <strong>Create Auto Scaling group</strong> 버튼을 눌러 <em>Auto Scaling Group</em>을 생성합니다.</p>
+</li>
+<li>
+<p>Step 1에서는 먼저 Auto Scaling 그룹의 이름을 지정합니다. 여기서는 <code>Web-ASG</code>라고 지정해 보겠습니다. 이후 아래의 시작 템플릿 란에서 방금 만든 템플릿, <code>Web</code>을 선택해 줍니다. 시작 템플릿의 기본 설정들이 아래로 펼쳐져 보입니다. 확인 후 우측 하단 <strong>Next</strong> 버튼을 누릅니다.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auto Scaling 그룹 이름</td>
+<td><code>Web-ASG</code></td>
+</tr>
+<tr>
+<td>시작 템플릿</td>
+<td><code>Web</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>Configure settings단계에서는 Purchasing options and instance types는 기본값으로 두고 네트워크 구성을 설정합니다. <strong>VPC</strong>에는 <code>VPC-Lab</code>을 선택하고, <strong>Subnets</strong> 란에 <code>Private subnet A</code>와 <code>Private subnet C</code>를 골라줍니다. 설정이 완료되면 <strong>Next</strong> 버튼을 누릅니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VPC</td>
+<td><code>VPC-Lab</code></td>
+</tr>
+<tr>
+<td>Subnets</td>
+<td><code>Private subnet A</code>, <code>Private subnet C</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="4">
+<li>다음으로는 로드 밸런싱 설정을 진행합니다. 먼저 <strong>Enable load balancing</strong> 버튼을 누르고, <code>Application Load Balancer or Network Load Balancer</code>를 선택합니다. 이후 <strong>Choose a target group for your load balancer</strong>란에서 ALB 생성 시 만든 <code>Web-TG</code>를 선택합니다. 맨 아래쪽의 <strong>Monitoring</strong>에서 <strong>Enable group metrics collection within CloudWatch</strong>의 <code>체크 박스를 선택</code>합니다. 이를 통해 Auto Scaling 그룹의 상태를 확인할 수 있는 그룹 지표(Metric)을 CloudWatch에서 확인할 수 있도록 합니다. 우측 하단의 <strong>Next</strong> 버튼을 누릅니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enable load balancing</td>
+<td><strong>Application Load Balancer or Network Load Balancer</strong> <code>체크 박스 클릭</code></td>
+</tr>
+<tr>
+<td>Choose a target group for your load balancer</td>
+<td><code>Web-TG</code></td>
+</tr>
+<tr>
+<td>Monitoring</td>
+<td><strong>Enable group metrics collection within CloudWatch</strong> <code>체크 박스 클릭</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="5">
+<li>Configure group size and scaling policies단계에서는 Auto Scaling 그룹의 Scaling 정책을 구성합니다. <strong>Group size</strong> 란에서 <strong>Desired capacity</strong>, <strong>Minimum capacity</strong>를 각각 <code>2</code>로 지정하고, <strong>Maximum capacity</strong>를 <code>4</code>로 지정합니다. 인스턴스 수를 평상시 2개로 유지하고, 정책에 따라 최소 2개, 최대 4개까지의 스케일링을 허용합니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desired capacity</td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td>Minimum capacity</td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td>Maximum capacity</td>
+<td><code>4</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="6">
+<li>아래 조정 정책 란에서는 <strong>Target tracking scaling policy</strong>을 선택하고, <strong>Target value</strong>에 <code>30</code>을 입력합니다. CPU 평균 사용률이 전체 30%가 유지될 수 있도록 인스턴스 수를 조정하는 정책입니다. 다른 설정들은 모두 기본값으로 두고, 우측 하단 <strong>Next</strong> 버튼을 누릅니다.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target tracking scaling policy</td>
+<td><code>체크 박스 선택</code></td>
+</tr>
+<tr>
+<td>Target value</td>
+<td><code>30</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="7">
+<li>
+<p>Add notifications단계는 기본값으로 둔 채 <strong>Next</strong>를 눌러 넘어갑니다.</p>
+</li>
+<li>
+<p>Add tags 단계에서는 간단히 이름 태그를 지정하겠습니다. <strong>Add tag</strong>를 누르고, <strong>Key</strong>에 <code>Name</code>을, <strong>Value</strong>에 <code>ASG-Web-Instance</code>를 입력한 후 <strong>Next</strong>을 클릭합니다.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Key</td>
+<td><code>Name</code></td>
+</tr>
+<tr>
+<td>Value</td>
+<td><code>ASG-Web-Instance</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="9">
+<li>
+<p>이제 마지막 검토 단계입니다. 관련된 설정들을 리뷰한 후, 우측 하단의 <strong>Create Auto Scaling Group</strong> 버튼을 눌러 주세요.</p>
+</li>
+<li>
+<p>Auto Scaling 그룹이 만들어졌습니다. Auto Scaling 그룹 콘솔에서 아래와 같이 생성된 Auto Scaling 그룹을 확인할 수 있습니다.</p>
+</li>
+<li>
+<p>Auto Scaling 그룹을 통해 생성된 인스턴스들은 EC2 인스턴스 메뉴에서도 확인해 볼 수 있습니다.</p>
+</li>
+</ol>
+<p>자, 이제 고가용성이 확보된, 부하에 따라 자동적으로 스케일링되는 웹 서비스를 구축하였습니다! 지금까지 만든 서비스의 구성도는 아래와 같습니다:</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/ko/compute/launching/" title="웹 서버 인스턴스의 시작"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/ko/compute/test_service/" title="웹 서비스 확인 및 테스트" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1593641840"></script>
+    <script src="/js/perfect-scrollbar.min.js?1593641840"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1593641840"></script>
+    <script src="/js/jquery.sticky.js?1593641840"></script>
+    <script src="/js/featherlight.min.js?1593641840"></script>
+    <script src="/js/highlight.pack.js?1593641840"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1593641840"></script>
+    <script src="/js/learn.js?1593641840"></script>
+    <script src="/js/hugo-learn.js?1593641840"></script>
+
+    <link href="/mermaid/mermaid.css?1593641840" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1593641840"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-161422664-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>

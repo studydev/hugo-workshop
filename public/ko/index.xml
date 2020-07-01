@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>워크샵 잘 만들어보기 on Hugo 템플릿 활용하기</title>
+    <title>AWS General Immersion Day on Hugo 템플릿 활용하기</title>
     <link>/ko/</link>
-    <description>Recent content in 워크샵 잘 만들어보기 on Hugo 템플릿 활용하기</description>
+    <description>Recent content in AWS General Immersion Day on Hugo 템플릿 활용하기</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 05 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/ko/index.xml" rel="self" type="application/rss+xml" />
     

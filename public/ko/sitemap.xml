@@ -3,113 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/ko/tip/contributions/</loc>
-    <lastmod>2020-03-20T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/tip/contributions/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="/ko/tip/contributions/"
-                />
-  </url>
-  
-  <url>
-    <loc>/ko/tip/</loc>
-    <lastmod>2020-03-20T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/tip/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="/ko/tip/"
-                />
-  </url>
-  
-  <url>
-    <loc>/ko/tip/vscode/</loc>
-    <lastmod>2020-03-20T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/tip/vscode/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="/ko/tip/vscode/"
-                />
-  </url>
-  
-  <url>
-    <loc>/ko/tip/hugo/</loc>
-    <lastmod>2020-03-20T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/tip/hugo/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="/ko/tip/hugo/"
-                />
-  </url>
-  
-  <url>
-    <loc>/ko/tip/image/</loc>
-    <lastmod>2020-03-20T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/tip/image/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="/ko/tip/image/"
-                />
-  </url>
-  
-  <url>
-    <loc>/ko/tip/aws/</loc>
-    <lastmod>2020-03-20T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/tip/aws/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="/ko/tip/aws/"
-                />
-  </url>
-  
-  <url>
-    <loc>/ko/tip/ga/</loc>
-    <lastmod>2020-03-05T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/tip/ga/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="/ko/tip/ga/"
-                />
-  </url>
-  
-  <url>
     <loc>/ko/</loc>
-    <lastmod>2020-03-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -123,159 +18,127 @@
   </url>
   
   <url>
-    <loc>/ko/introduction/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/introduction/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="/ko/introduction/"
-                />
+    <loc>/ko/prerequisites/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/introduction/datalake/</loc>
+    <loc>/ko/network/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/introduction/lakeformation/</loc>
+    <loc>/ko/network/create_vpc/</loc>
+    <lastmod>2020-06-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/setup/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/setup/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="/ko/setup/"
-                />
+    <loc>/ko/network/create_subnet/</loc>
+    <lastmod>2020-06-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/lab-setup/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/lab-setup/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="/ko/lab-setup/"
-                />
+    <loc>/ko/compute/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/build-datalake/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/build-datalake/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="/ko/build-datalake/"
-                />
+    <loc>/ko/compute/launching/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/build-datalake/admin/</loc>
+    <loc>/ko/compute/auto_scaling/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/build-datalake/database/</loc>
+    <loc>/ko/compute/test_service/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/build-datalake/storage/</loc>
+    <loc>/ko/compute/appendix/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/build-datalake/blueprint/</loc>
+    <loc>/ko/database/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/build-datalake/verify/</loc>
+    <loc>/ko/database/create_sg/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/build-datalake/datamart/</loc>
+    <loc>/ko/database/create_rds/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/build-datalake/security/</loc>
+    <loc>/ko/database/connect_app/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/analytic/athena/bank-analyst/</loc>
+    <loc>/ko/database/update_asg/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/analytic/athena/credit-card-analyst/</loc>
+    <loc>/ko/database/manage_rds/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/analytic/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/analytic/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="/ko/analytic/"
-                />
+    <loc>/ko/database/challenge_aurora/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/analytic/athena/supervisor/</loc>
+    <loc>/ko/storage/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/analytic/athena/</loc>
+    <loc>/ko/storage/create_bucket/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/analytic/redshift/create-cluster-iam/</loc>
+    <loc>/ko/storage/put_object/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/analytic/redshift/</loc>
+    <loc>/ko/storage/view_object/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/analytic/redshift/create-cluster/</loc>
+    <loc>/ko/storage/static_web_hosting/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/analytic/redshift/lake-formation-catalog/</loc>
+    <loc>/ko/storage/move_object/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/ko/analytic/redshift/spectrum-query/</loc>
+    <loc>/ko/storage/enable_versioning/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/ko/storage/delete_bucket/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/ko/cleanup/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/en/cleanup/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="/ko/cleanup/"
-                />
   </url>
   
   <url>

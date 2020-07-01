@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.67.1" />
+    <meta name="description" content="">
+<meta name="author" content="Hyounsoo Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>웹 서버 인스턴스의 시작 :: Hugo 템플릿 활용하기</title>
+
+    
+    <link href="/css/nucleus.css?1593641840" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1593641840" rel="stylesheet">
+    <link href="/css/hybrid.css?1593641840" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1593641840" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1593641840" rel="stylesheet">
+    <link href="/css/auto-complete.css?1593641840" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1593641840" rel="stylesheet">
+    <link href="/css/theme.css?1593641840" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1593641840" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1593641840" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1593641840"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/ko/compute/launching/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/" style="margin:auto;width:60%;padding:10px;">
+	<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 30"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="검색...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1593641840"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1593641840"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/ko";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1593641840"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/prerequisites/" title="개요 및 사전 준비사항" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/prerequisites/">
+          <b>0. </b>개요 및 사전 준비사항
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/network/" title="네트워크 – Amazon VPC" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/network/">
+          <b>1. </b>네트워크 – Amazon VPC
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/network/create_vpc/" title="VPC 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/network/create_vpc/">
+          <b>1-1. </b>VPC 생성
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/network/create_subnet/" title="VPC에서 추가 서브넷 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/network/create_subnet/">
+          <b>1-2. </b>VPC에서 추가 서브넷 생성
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/compute/" title="컴퓨트 – Amazon EC2" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/ko/compute/">
+          <b>2. </b>컴퓨트 – Amazon EC2
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/compute/launching/" title="웹 서버 인스턴스의 시작" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/ko/compute/launching/">
+          <b>2-1. </b>웹 서버 인스턴스의 시작
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/compute/auto_scaling/" title="오토 스케일링 웹 서비스 배포" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/compute/auto_scaling/">
+          <b>2-2. </b>오토 스케일링 웹 서비스 배포
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/compute/test_service/" title="웹 서비스 확인 및 테스트" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/compute/test_service/">
+          <b>2-3. </b>웹 서비스 확인 및 테스트
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/compute/appendix/" title="부록 - 추가적인 EC2 개념들" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/compute/appendix/">
+          <b>2-4. </b>부록 - 추가적인 EC2 개념들
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/" title="데이터베이스 – Amazon Aurora" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/">
+          <b>3. </b>데이터베이스 – Amazon Aurora
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/create_sg/" title="VPC 보안 그룹 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/create_sg/">
+          <b>3-1. </b>VPC 보안 그룹 생성
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/create_rds/" title="RDS 인스턴스 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/create_rds/">
+          <b>3-2. </b>RDS 인스턴스 생성
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/connect_app/" title="웹앱 서버와 RDS 연결" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/connect_app/">
+          <b>3-3. </b>웹앱 서버와 RDS 연결
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/update_asg/" title="오토 스케일링 그룹 업데이트" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/update_asg/">
+          <b>3-4. </b>오토 스케일링 그룹 업데이트
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/manage_rds/" title="RDS 관리 기능" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/manage_rds/">
+          <b>3-5. </b>RDS 관리 기능
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/database/challenge_aurora/" title="도전 과제 - RDS Aurora 연결" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/database/challenge_aurora/">
+          <b>3-6. </b>도전 과제 - RDS Aurora 연결
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/" title="스토리지 – Amazon S3" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/">
+          <b>4. </b>스토리지 – Amazon S3
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/create_bucket/" title="S3 내 Bucket 생성" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/create_bucket/">
+          <b>4-1. </b>S3 내 Bucket 생성
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/put_object/" title="버킷에 오브젝트 추가하기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/put_object/">
+          <b>4-2. </b>버킷에 오브젝트 추가하기
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/view_object/" title="오브젝트 보기" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/view_object/">
+          <b>4-3. </b>오브젝트 보기
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/static_web_hosting/" title="정적 웹 사이트 호스팅 사용" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/static_web_hosting/">
+          <b>4-4. </b>정적 웹 사이트 호스팅 사용
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/move_object/" title="오브젝트 이동" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/move_object/">
+          <b>4-5. </b>오브젝트 이동
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/enable_versioning/" title="버킷 버저닝 활성화" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/enable_versioning/">
+          <b>4-6. </b>버킷 버저닝 활성화
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/storage/delete_bucket/" title="오브젝트 및 버킷 삭제" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/storage/delete_bucket/">
+          <b>4-7. </b>오브젝트 및 버킷 삭제
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ko/cleanup/" title="실습 리소스 정리" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/ko/cleanup/">
+          <b>5. </b>실습 리소스 정리
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/"><i class='fab fa-aws'></i> AWS Homepage</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/blogs/aws/"><i class='fas fa-blog'></i> AWS Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awskrug/"><i class='fab fa-facebook-square'></i> Facebook</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://github.com/studydev/hugo-workshop"><i class='fab fa-github'></i> Github</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="ko" value="/ko/compute/launching/" selected>한국어</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    <section class="copyright">&copy; 2020 Amazon Web Services, Inc. or its Affiliates. All rights reserved.<section>
+</left>
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/ko/'>AWS General Immersion Day</a> > <a href='/ko/compute/'>컴퓨트 – Amazon EC2</a> > 웹 서버 인스턴스의 시작
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#인스턴스-생성">인스턴스 생성</a></li>
+    <li><a href="#웹-서비스-접속">웹 서비스 접속</a></li>
+    <li><a href="#인스턴스-접속">인스턴스 접속</a></li>
+    <li><a href="#커스텀-ami-생성">커스텀 AMI 생성</a></li>
+    <li><a href="#인스턴스-종료terminate">인스턴스 종료(Terminate)</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              웹 서버 인스턴스의 시작
+            </h1>
+          
+
+        
+
+
+
+
+	
+<div class="notices note" ><p>이 과정에서는 기본 Amazon Linux 인스턴스를 시작하고, 초기화 과정에서 Apache/PHP Web Server를 자동으로 구성하도록 합니다.</p>
+</div>
+
+<h2 id="인스턴스-생성">인스턴스 생성</h2>
+<ol>
+<li>
+<p>좌측 메뉴 상단의 <strong>EC2 Dashboard</strong>를 클릭합니다.</p>
+</li>
+<li>
+<p><strong>Launch instance</strong> 버튼을 누르고, 메뉴에서 <strong>Launch instance</strong> 를 선택합니다.</p>
+</li>
+<li>
+<p><strong>[Step 1. Choose AMI]</strong> 의 <strong>Quick Start</strong> 탭에서 <code>Amazon Linux 2 AMI</code>를 선택하십시오. <em>Amazon Linux AMI</em>가 아니라 <code>Amazon Linux 2 AMI</code> 입니다.</p>
+</li>
+<li>
+<p><strong>[Step 2. Choose Instance Type]</strong> 에서 <code>t2.micro</code>를 선택하고 <strong>Next: Configure Instacne Details</strong>을 클릭 하십시오.</p>
+</li>
+<li>
+<p><strong>[Step 3. Configure Instance]</strong> 에서 아래와 같이 설정합니다.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network</td>
+<td><code>VPC-Lab</code> 태그가 붙어 있는 VPC를 선택합니다.</td>
+</tr>
+<tr>
+<td>Subnet</td>
+<td>드롭 다운 메뉴에서 <code>Public subnet A</code>를 찾아 선택합니다.</td>
+</tr>
+<tr>
+<td>Auto-assign Public IP</td>
+<td><code>Enable</code></td>
+</tr>
+</tbody>
+</table>
+<p>나머지 모든 값들은 기본값을 사용하고, 화면 하단의 <strong>Advanced Details</strong>를 클릭하여 확장하십시오. <strong>User data</strong> 입력란에 아래의 내용을 입력한 후, <strong>Next: Add Storage</strong>를 선택 하십시오.<br>
+<code>#include https://go.aws/38GIqcB </code><br>
+또는 아래와 같이 쉘 스크립트를 직접 입력한 후 <strong>Next: Add Storage</strong>를 선택 하십시오.</p>
+<pre><code>#!/bin/sh
+yum -y install httpd php mysql php-mysql
+chkconfig httpd on
+systemctl start httpd
+if [ ! -f /var/www/html/bootcamp-app.tar.gz ]; then
+   cd /var/www/html
+   wget https://s3.amazonaws.com/awstechbootcamp/GettingStarted/bootcamp-app.tar.gz
+   tar xvfz bootcamp-app.tar.gz
+   chown apache:root /var/www/html/rds.conf.php
+fi
+yum -y update
+</code></pre>
+<div class="notices tip" ><p>사용자 데이터(User Data)는 최초 인스턴스 생성시 실행되는 사용자 정의 초기화 스크립트 입니다.</p>
+</div>
+
+<ol start="6">
+<li>
+<p><strong>[Step 4. Add Storage]</strong> 에서 인스턴스에 할당하는 OS Volume(EBS Volume)을 정의합니다. 기본 값인 8GB(SSD Type)를 그대로 사용합니다. <strong>Next: Add Tags</strong>를 클릭하여 다음 단계로 진행합니다.</p>
+</li>
+<li>
+<p><strong>[Step 5: Add Tags]</strong> 에서 인스턴스를 식별할 수 있는 다양한 정보를 추가할 수 있습니다. 태그 정보를 통하여 사용자는 인스턴스의 용도, 목적, 비용 관련 정보 등을 손쉽게 확인 할 수 있습니다. <strong>Add Tag</strong>를 클릭하고, 키와 값을 아래와 같이 입력합니다. 완료되면 <strong>Next: Configure Security Group</strong>을 클릭하십시오.</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Key</td>
+<td><code>Name</code></td>
+</tr>
+<tr>
+<td>Value</td>
+<td><code>Web server for custom AMI</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="8">
+<li><strong>[Step 6: Configure Security Group]</strong> 에서는 새로운 보안 그룹을 만들거나 기존에 만들어진 보안 그룹을 선택 할 수 있습니다. 보안 그룹은 방화벽 정책으로 허용하고자 하는 프로토콜과 주소를 지정하게 됩니다. Lab을 위하여 새로운 보안 그룹을 생성하고 이름을 지정합니다.</li>
+</ol>
+<p><strong>Security group name</strong>에 <strong>Immersion Day - Web Server</strong>를 입력 후, <strong>Add Rule</strong>를 선택하여 Web Service를 위한 TCP/80도 함께 허용합니다. 추가된 행의 <strong>Type</strong>에 <strong>HTTP</strong>를 지정하면 됩니다. 소스 주소의 <strong>0.0.0.0/0</strong>은 모든 네트워크에서의 접근을 의미합니다.</p>
+<p><strong>Review and Launch</strong>을 클릭하여  전체 구성을 확인합니다.</p>
+<ol start="9">
+<li>
+<p><strong>[Step 7. Review]</strong> 에서 앞서 구성한 정보를 확인하고 <strong>Launch</strong>을 선택하여 인스턴스를 시작하십시오.</p>
+</li>
+<li>
+<p>키 페어 선택 화면에서 <strong>Proceed without a key pair</strong>를 선택합니다. 아래 체크박스를 선택 후, <strong>Launch Instances</strong>를 클릭합니다.</p>
+</li>
+<li>
+<p>화면 하단의 <strong>인스턴스 보기</strong>를 선택하여 EC2인스턴스의 목록을 확인할 수 있습니다. 인스턴스의 시작이 완료되면 인스턴스가 구동되고 있는 가용 영역, 외부에서 접근 가능한 IP 및 DNS 정보를 확인 할 수 있습니다.</p>
+</li>
+</ol>
+<h2 id="웹-서비스-접속">웹 서비스 접속</h2>
+<ol>
+<li>
+<p>인스턴스의 <strong>Status Check</strong> 결과가 <strong>2/2 checks passed</strong>가 될 때 까지 대기 하십시오.  초기화가 완료되면 <strong>2/2 checks passed</strong>로 변경됩니다.</p>
+</li>
+<li>
+<p>새로운 웹 브라우저 탭을 열고 URL 주소 입력하는 영역에, EC2 인스턴스의 <strong>퍼블릭 DNS 또는 IPv4 퍼블릭 IP를 입력</strong>하십시오. 아래와 같이 페이지가 보여지면 웹 서버 인스턴스가 정상적으로 구성된 것입니다.</p>
+</li>
+</ol>
+<h2 id="인스턴스-접속">인스턴스 접속</h2>
+<ol>
+<li>
+<p>EC2 인스턴스 콘솔로 들어갑니다. 접속하고자 하는 인스턴스를 선택한 뒤, 가운데 <strong>Connect</strong> 버튼을 누릅니다.</p>
+</li>
+<li>
+<p><strong>Connect your instance</strong> 창에서 <strong>Connection method</strong>를 EC2 Instance Connect로 선택한 뒤, 오른쪽 아래 <strong>Connect</strong> 버튼을 누릅니다.</p>
+</li>
+</ol>
+<p>잠시 기다리고 나면, 아래와 같이 브라우저 기반 SSH 콘솔을 사용하실 수 있습니다. 테스트 후 창을 닫으면 됩니다.</p>
+<h2 id="커스텀-ami-생성">커스텀 AMI 생성</h2>
+<p>AWS EC2 콘솔에서는 생성된 인스턴스를 이용하여 이미지를 만들고, 추후 인스턴스 생성 시 이 이미지를 사용할 수 있습니다. 이를 커스텀 AMI라고 부릅니다. 
+여기서는 앞서 생성한 웹 서버 인스턴스를 이용하여 AMI를 만들어 보겠습니다.</p>
+<p>EC2 콘솔에서 아까 생성한 인스턴스를 선택하고, <strong>Actions</strong> -&gt; <strong>Image</strong> -&gt; <strong>Create Image</strong> 를 선택합니다.</p>
+<p>Create Image 창에서 아래와 같이 입력합니다.</p>
+<table>
+<thead>
+<tr>
+<th>키</th>
+<th>값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image name</td>
+<td><code>Web Server v1</code></td>
+</tr>
+<tr>
+<td>Image description</td>
+<td><code>LAMP web server AMI</code></td>
+</tr>
+</tbody>
+</table>
+<p>이후 <strong>Create image</strong>를 눌러 이미지를 생성합니다.</p>
+<p>이미지 생성 요청이 완료되었다는 창에서 <strong>Close</strong>를 누르고, 좌측 콘솔 메뉴에서 IMAGES 아래 AMIs 버튼을 찾아 클릭합니다. 방금 요청한 AMI가 생성 중인 것을 보실 수 있습니다.</p>
+<p>생성이 완료되면 아래와 같이 <strong>Status</strong>가 <strong>Available</strong>로 변경됩니다.</p>
+<h2 id="인스턴스-종료terminate">인스턴스 종료(Terminate)</h2>
+<p>커스텀 AMI 생성을 완료하였으니 이제 기존의 EC2 인스턴스를 종료(Termination)해 보도록 하겠습니다.</p>
+<ol>
+<li>EC2 대시보드에서 <strong>Instances</strong> 탭으로 들어갑니다.</li>
+<li>삭제하고자 하는 인스턴스를 선택합니다. 이후 <strong>Actions</strong> -&gt; <strong>Instance state</strong> -&gt; <strong>Terminate</strong> 를 클릭합니다.</li>
+<li>경고 창이 뜨면, <strong>Yes, Terminate</strong>를 눌러 삭제합니다.</li>
+<li>Instance State가 <strong>Shutting down</strong>으로 변경됩니다.</li>
+<li>이후 곧 <strong>terminated</strong>로 변경됩니다. 삭제가 완료되었습니다.</li>
+</ol>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/ko/compute/" title="컴퓨트 – Amazon EC2"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/ko/compute/auto_scaling/" title="오토 스케일링 웹 서비스 배포" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1593641840"></script>
+    <script src="/js/perfect-scrollbar.min.js?1593641840"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1593641840"></script>
+    <script src="/js/jquery.sticky.js?1593641840"></script>
+    <script src="/js/featherlight.min.js?1593641840"></script>
+    <script src="/js/highlight.pack.js?1593641840"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1593641840"></script>
+    <script src="/js/learn.js?1593641840"></script>
+    <script src="/js/hugo-learn.js?1593641840"></script>
+
+    <link href="/mermaid/mermaid.css?1593641840" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1593641840"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-161422664-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
